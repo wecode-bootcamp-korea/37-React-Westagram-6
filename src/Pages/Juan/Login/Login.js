@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Loginj() {
-  return <div>Loginj</div>;
+function Login() {
+  return <div>Juan Login</div>;
 }
 
-export default Loginj;
+export default Login;
