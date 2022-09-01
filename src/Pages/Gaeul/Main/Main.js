@@ -1,5 +1,4 @@
 import React from 'react';
-import './Main';
 import './Main.scss';
 
 function Main() {
@@ -71,7 +70,7 @@ function Main() {
               </div>
 
               <button id="dot">
-                <i class="fa-solid fa-ellipsis" />
+                <i className="fa-solid fa-ellipsis" />
               </button>
             </div>
 
@@ -107,7 +106,7 @@ function Main() {
                 <span className="comment-text">
                   <em>somebody</em>&nbsp;&nbsp;케이크 좋아
                 </span>
-                <div clasNames="comment-btn-wrap">
+                <div className="comment-btn-wrap">
                   <button className="comment-heart-btn">
                     <i class="fa-regular fa-heart" />
                   </button>
@@ -141,7 +140,7 @@ function Main() {
           <section className="story">
             <div className="story-bar">
               <h5>스토리</h5>
-              <button onClick="">모두 보기</button>
+              <button>모두 보기</button>
             </div>
 
             <div className="story-user">
@@ -188,7 +187,7 @@ function Main() {
           <section className="recommend">
             <div className="story-bar">
               <h5>회원님을 위한 추천</h5>
-              <button onClick="">모두 보기</button>
+              <button>모두 보기</button>
             </div>
 
             <div className="story-recommend-user">

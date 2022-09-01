@@ -65,13 +65,19 @@ body {
       margin: 8px 0;
       border: none;
       border-radius: 4px;
-      background-color: $powderBlue;
+      background-color: $instaBlue;
+      opacity: 1;
       color: $white;
       font-size: 13.5px;
       font-weight: bold;
+      cursor: pointer;
 
       a {
         color: $white;
+      }
+
+      &:disabled {
+        opacity: 0.5;
       }
     }
   }

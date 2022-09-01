@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import './Login';
 import './Login.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState('');
   function saveUserId(event) {
     setUserId(event.target.value);
   }
 
-  const [userPw, setUserPw] = useState();
+  const [userPw, setUserPw] = useState('');
   function saveUserPw(event) {
     setUserPw(event.target.value);
   }
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -32,8 +33,14 @@ function Login() {
             placeholder="비밀번호"
             onChange={saveUserPw}
           />
-          <button className="login-btn">
-            <Link to="/maing">로그인</Link>
+          <button
+            className="login-btn"
+            onClick={() => {
+              navigate('/maing');
+            }}
+            disabled={userId.includes('@') && userPw.length >= 5 ? false : true}
+          >
+            로그인
           </button>
         </form>
 
