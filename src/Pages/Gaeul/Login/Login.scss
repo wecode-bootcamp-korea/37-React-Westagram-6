@@ -1,0 +1,172 @@
+@import '../../../styles/reset.scss';
+@import '../../../styles/common.scss';
+@import '../../../styles/variable.scss';
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin loginInput {
+  width: 266px;
+  height: 36px;
+  border: $boxBorder;
+  background-color: #fafafa;
+  color: #a4a4a4;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  padding-left: 8px;
+}
+
+body {
+  background-color: $backGroundColor;
+}
+
+.main-box {
+  width: 350px;
+  height: 385px;
+  border: $boxBorder;
+  background-color: $white;
+  margin: 44px auto 10px auto;
+
+  .logo {
+    font-family: 'lobster';
+    font-size: 40px;
+    letter-spacing: -1px;
+    text-align: center;
+    margin: 40px auto;
+  }
+
+  .wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+
+    .nameEmail {
+      @include loginInput;
+      &:focus {
+        outline: 1px solid #a8a8a8;
+      }
+    }
+
+    .passWord {
+      @include loginInput;
+      &:focus {
+        outline: 1px solid #a8a8a8;
+      }
+    }
+
+    .login-btn {
+      width: 266px;
+      height: 30px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      background-color: $powderBlue;
+      color: $white;
+      font-size: 13.5px;
+      font-weight: bold;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .or-wrap {
+    @include flex;
+
+    .line {
+      width: 105px;
+      height: 1px;
+      background-color: #dbdbdb;
+      align-items: center;
+    }
+
+    p {
+      font-size: 13px;
+      font-weight: bold;
+      color: rgb(142, 142, 142);
+      margin: 0 17px;
+    }
+  }
+
+  .facebook-login-btn {
+    @include flex;
+    margin: 20px auto;
+    color: none;
+
+    button {
+      border: none;
+      cursor: pointer;
+      background-color: white;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
+
+    span {
+      color: $faceBookColor;
+      font-weight: bold;
+      position: relative;
+      bottom: 2px;
+    }
+  }
+
+  .forgot-password {
+    color: $faceBookColor;
+    font-size: 12px;
+    text-align: center;
+
+    a {
+      color: $faceBookColor;
+      &:visited {
+        color: $faceBookColor;
+      }
+    }
+  }
+}
+
+.join-box {
+  width: 350px;
+  height: 60px;
+  border: 1px solid #dbdbdb;
+  background-color: $white;
+  text-align: center;
+  margin: 0 auto 20px auto;
+  @include flex;
+
+  p {
+    font-size: 14px;
+  }
+
+  a {
+    font-weight: bold;
+    color: $instaBlue;
+    margin-left: 5px;
+  }
+}
+
+.app-down {
+  p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .download-image {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 136px;
+      height: 40px;
+      margin: 20px 4px;
+    }
+  }
+}
