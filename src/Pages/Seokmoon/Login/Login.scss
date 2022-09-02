@@ -1,3 +1,4 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css';
 
 $white-color: white;
 
@@ -48,7 +49,6 @@ $white-color: white;
   border-radius: 10px;
   font-size: 20px;
   padding-left: 20px;
-
 }
 
 .login-button {
@@ -56,10 +56,10 @@ $white-color: white;
   height: 60px;
   font-size: 20px;
   border-radius: 10px;
-  background-color: #C4E1FB;
+  background-color: #c4e1fb;
   border: 1px solid $white-color;
   color: $white-color;
-  &:disabled{
+  &:disabled {
     background-color: rgb(0, 170, 255);
   }
 }
