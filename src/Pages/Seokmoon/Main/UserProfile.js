@@ -2,7 +2,7 @@ import React from 'react';
 
 function UserProfile() {
   return (
-    <React.Fragment>
+    <>
       <div className="right-recommendation">
         <div>
           <div className="right-box main-image-box-right">
@@ -21,7 +21,7 @@ function UserProfile() {
 
         <div className="follow-letter">팔로우</div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 export default UserProfile;
