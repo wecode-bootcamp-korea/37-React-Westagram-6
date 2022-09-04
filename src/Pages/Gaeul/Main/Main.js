@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
+import CommentList from '../Component/CommentList';
 
 function Main() {
+  //코멘트 아이디, 코멘트 입력값
+  const [idValue, setIdValue] = useState('user007');
+  const [inputValue, setInputValue] = useState('');
+  //코멘트 입력값 저장소
+  const [inputValueList, setInputValueList] = useState([]);
+  //코멘트 버튼 유효성 검사
+  const [isValid, setIsValid] = useState(false);
+
+  const post = e => {
+    e.preventDefault();
+    const copyArr = [...inputValueList];
+    copyArr.push(inputValue);
+    setInputValueList(copyArr);
+    setInputValue('');
+    setIsValid(false);
+  };
+
   return (
     <>
       <header>
@@ -102,28 +120,38 @@ function Main() {
             </div>
 
             <ul className="comments-ul">
-              <li className="comment-li">
-                <span className="comment-text">
-                  <em>somebody</em>&nbsp;&nbsp;케이크 좋아
-                </span>
-                <div className="comment-btn-wrap">
-                  <button className="comment-heart-btn">
-                    <i class="fa-regular fa-heart" />
-                  </button>
-                  <button className="delete-btn">
-                    <i className="fa-solid fa-trash-can" />
-                  </button>
-                </div>
-              </li>
+              {inputValueList.map((item, i) => {
+                return <CommentList idValue={idValue} item={item} key={i} />;
+              })}
             </ul>
 
-            <form className="lets-comment">
+            <form className="lets-comment" onSubmit={post}>
               <input
                 className="comment-input"
                 type="text"
                 placeholder="댓글 달기..."
+                onChange={e => {
+                  setInputValue(e.target.value);
+                }}
+                onKeyUp={e => {
+                  e.target.value.length > 0
+                    ? setIsValid(true)
+                    : setIsValid(false);
+                }}
+                value={inputValue}
               />
-              <button className="comment-button">게시</button>
+              <button
+                type="button"
+                className={
+                  isValid === true
+                    ? 'submitCommentActive'
+                    : 'submitCommentInactive'
+                }
+                onClick={post}
+                disabled={isValid ? false : true}
+              >
+                게시
+              </button>
             </form>
           </div>
         </div>
@@ -244,7 +272,7 @@ function Main() {
                 소개 · 도움말 · 홍보 센터 · API · 채용 정보 · 개인정보처리방침 ·
                 약관 · 위치 · 언어
               </p>
-              <p>© 2022 INSsGRAM FROM META</p>
+              <p>© 2022 INSTAGRAM FROM META</p>
             </div>
           </footer>
         </div>

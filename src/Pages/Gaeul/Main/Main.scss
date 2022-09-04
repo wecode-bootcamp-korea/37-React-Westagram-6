@@ -303,7 +303,14 @@ em {
           }
         }
 
-        .comment-button {
+        .submitCommentActive {
+          font-size: 13px;
+          font-weight: 700;
+          color: #0095f6;
+          background-color: $white;
+        }
+
+        .submitCommentInactive {
           font-size: 13px;
           font-weight: 700;
           color: #0095f6;
