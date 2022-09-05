@@ -12,7 +12,6 @@ import {
   faHeart,
 } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
-
 function Main() {
   const [commentArr, setCommentArr] = useState(['거봐 좋았잖아~~~🙆🏻‍♀️']);
   return (
@@ -102,9 +101,9 @@ function Feeds({ commentArr, setCommentArr }) {
 }
 
 function UserReply(props) {
-  return props.commentArr.map(function (commentArr, i) {
+  return props.commentArr.map(function (el, i) {
     return (
-      <li key={commentArr} className="userReply">
+      <li key={i} className="userReply">
         <div className="replyTextContainer">
           <p className="userId">neceosecius</p>
           <p className="replyText">{props.commentArr[i]}</p>

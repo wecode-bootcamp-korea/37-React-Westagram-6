@@ -32,7 +32,7 @@ function Nav() {
           }}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} />
-        {searchState === true ? <SearchModal /> : null}
+        {searchState && <SearchModal />}
       </div>
       <div className="navMenuContainer">
         <img

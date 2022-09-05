@@ -3,23 +3,19 @@ import './Login.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 function Login() {
-  const [inputIdValue, setInputIdValue] = useState('');
-  const [inputPwdValue, setInputPwdValue] = useState('');
+  const [inputValue, setInputValue] = useState({ email: '', password: '' });
   const [disabled, setDisabled] = useState(true);
 
-  const SaveUserId = e => {
-    setInputIdValue(e.target.value);
-    validation();
-  };
-  const SaveUserPwd = e => {
-    setInputPwdValue(e.target.value);
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setInputValue({ ...inputValue, [name]: value });
     validation();
   };
 
   const validation = () => {
-    inputIdValue.includes('@') && inputPwdValue.length >= 5
-      ? setDisabled(false)
-      : setDisabled(true);
+    const isVaild =
+      inputValue.email.includes('@') && inputValue.password.length >= 5;
+    setDisabled(!isVaild);
   };
   return (
     <div className="login">
@@ -29,24 +25,24 @@ function Login() {
           className="loginInput"
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          id="idInput"
-          onChange={SaveUserId}
+          name="email"
+          onChange={handleInput}
         />
         <input
           className="loginInput"
           type="password"
           placeholder="비밀번호"
-          id="pwdInput"
-          onChange={SaveUserPwd}
+          name="password"
+          onChange={handleInput}
         />
         <Link to="/Mainj">
           <button className="loginBtn" disabled={disabled}>
             로그인
           </button>
         </Link>
-        <a className="pwdFind" href="/">
-          비밀번호를 잊으셨나요?
-        </a>
+        <Link to="/Loginj">
+          <p className="pwdFind">비밀번호를 잊으셨나요?</p>
+        </Link>
       </div>
     </div>
   );
