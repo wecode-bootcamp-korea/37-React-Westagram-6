@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { USER_DATA } from '../Main';
 
-function MainRight() {
+function Aside() {
+  useEffect(() => {
+    UserStoryContainer();
+    RecommendUser();
+  }, []);
   return (
     <section className="mainRight">
       <div className="rightItem1">
@@ -21,17 +25,18 @@ function MainRight() {
         </div>
       </section>
 
-      <div className="right_item3">
+      <div className="rightItem3">
         <div className="right_item_header">
           <p className="right_item_title">회원님을 위한 추천</p>
           <p className="right_item_all">모두보기</p>
         </div>
-        <RecommendUser />
+        <div className="recommendContainer">
+          <RecommendUser />
+        </div>
       </div>
     </section>
   );
 }
-
 function UserStoryContainer() {
   return USER_DATA.map(user => {
     return (
@@ -51,13 +56,13 @@ function UserStoryContainer() {
 }
 
 function RecommendUser() {
-  return USER_DATA.reverse().map(user => {
+  return USER_DATA.map(user => {
     return (
       <div className="user_container" key={user.id}>
         <img
           src={user.profile_url}
           alt="유저 이미지"
-          className="userProfileImgCircle article_profile"
+          className="userProfileImgCircle"
         />
         <div className="user_tag">
           <p className="userId">{user.user_id}</p>
@@ -70,4 +75,4 @@ function RecommendUser() {
     );
   });
 }
-export default MainRight;
+export default Aside;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEllipsisVertical,
@@ -10,8 +10,11 @@ import {
   faHeart,
 } from '@fortawesome/free-regular-svg-icons';
 
-function Feeds({ commentArr, setCommentArr }) {
-  const ReplySumbit = e => {
+function Feeds(props) {
+  const { articleData } = props;
+  const [commentArr, setCommentArr] = useState([]);
+
+  const replySumbit = e => {
     const replyInput = document.querySelector('.replyInput');
     let copy = [...commentArr];
     copy.push(replyInput.value);
@@ -19,16 +22,24 @@ function Feeds({ commentArr, setCommentArr }) {
     replyInput.value = '';
     e.preventDefault();
   };
-  return (
-    <section className="feeds">
-      <div className="article">
+  return articleData.map(data => {
+    return (
+      <div className="article" key={data.id}>
         <section className="articleHeader">
-          <div className="userProfileImgCircle" />
-          <div className="userId">shinju4n</div>
+          <img
+            src={data.img_url}
+            alt="유저 프로필"
+            className="userProfileImgCircle"
+          />
+          <div className="userId">{data.user_id}</div>
           <FontAwesomeIcon icon={faEllipsisVertical} className="ellipsis" />
         </section>
 
-        <div className="articleContentImg" />
+        <img
+          src={data.img_url}
+          alt="피드 이미지"
+          className="articleContentImg"
+        />
 
         <div className="articleReplyContainer">
           <div className="articleBtnContainer">
@@ -42,15 +53,15 @@ function Feeds({ commentArr, setCommentArr }) {
           </div>
 
           <div className="articleLike">
-            <span className="userProfileImgCircle" />{' '}
+            <span className="userProfileImgCircle" />
             <span className="userId">h.j.jang</span>님외 &nbsp;
             <span className="likeCount">7</span>명이 좋아합니다.
           </div>
 
           <div className="articleText">
             <div>
-              <span className="userId">shinju4n</span>
-              <span className="replyText">2022.07.30 즐거웠던빠지여행</span>
+              <span className="userId">{data.user_id}</span>
+              <span className="replyText">{data.content}</span>
             </div>
           </div>
 
@@ -61,25 +72,25 @@ function Feeds({ commentArr, setCommentArr }) {
           <p className="articleTime">42분전</p>
         </div>
 
-        <form onSubmit={ReplySumbit} className="replyForm">
+        <form onSubmit={replySumbit} className="replyForm">
           <input
             type="text"
             placeholder="댓글 달기..."
             className="replyInput"
           />
-          <button className="replyBtn" type="submit" onClick={ReplySumbit}>
+          <button className="replyBtn" type="submit" onClick={replySumbit}>
             게시
           </button>
         </form>
       </div>
-    </section>
-  );
+    );
+  });
 }
 
 function UserReply(props) {
   return props.commentArr.map(function (el, i) {
     return (
-      <li key={i} className="userReply">
+      <li key={el} className="userReply">
         <div className="replyTextContainer">
           <p className="userId">neceosecius</p>
           <p className="replyText">{props.commentArr[i]}</p>

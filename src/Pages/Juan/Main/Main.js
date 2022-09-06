@@ -1,20 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../../../components/Nav/Nav';
-import '../Main/Main.scss';
 import Feeds from './components/Feeds';
-import MainRight from './components/MainRight';
+import Aside from './components/Aside';
 import Footer from './components/Footer';
+import '../Main/Main.scss';
 
 function Main() {
-  const [commentArr, setCommentArr] = useState(['거봐 좋았잖아~~~🙆🏻‍♀️']);
+  const [articleData, setArticleData] = useState([]);
+  const [commentArr, setCommentArr] = useState([]);
 
+  useEffect(() => {
+    fetch('/data/articleDataJuan.json', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => {
+        setArticleData(data);
+      });
+  }, []);
   return (
     <>
       <Nav />
       <div className="Main">
         <main>
-          <Feeds commentArr={commentArr} setCommentArr={setCommentArr} />
-          <MainRight />
+          <section className="feeds">
+            <Feeds
+              commentArr={commentArr}
+              setCommentArr={setCommentArr}
+              articleData={articleData}
+            />
+          </section>
+          <Aside />
         </main>
         <Footer />
       </div>

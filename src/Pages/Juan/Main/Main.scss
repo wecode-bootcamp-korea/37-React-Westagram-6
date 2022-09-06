@@ -3,17 +3,22 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 30px;
+    height: 87vh;
+    padding: 20px;
     background-color: #fafafa;
     .feeds {
       display: flex;
-      justify-content: space-around;
-      min-width: 500px;
-      min-height: 100%;
+      flex-direction: column;
       margin-right: 100px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       .article {
         background-color: white;
+        margin-bottom: 50px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
         .articleHeader {
           position: relative;
           display: flex;
@@ -33,11 +38,11 @@
           }
         }
         .articleContentImg {
-          width: 100%;
+          width: 500px;
           min-width: 500px;
-          height: 600px;
+          height: 450px;
           background-image: url('https://img.khan.co.kr/news/2022/02/01/l_2022020101000012600000501.webp');
-          background-size: contain;
+          background-size: cover;
           background-repeat: no-repeat;
           background-position: center center;
         }
@@ -86,6 +91,13 @@
             font-weight: bolder;
           }
         }
+        .replyContainer {
+          max-height: 80px;
+          overflow: auto;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
         .replyForm {
           position: relative;
           .replyInput {
@@ -124,6 +136,7 @@
   .userId {
     font-weight: bolder;
     display: inline;
+    margin-right: 5px;
   }
 
   .reple_heart {
@@ -147,55 +160,55 @@
   .mainRight {
     width: 30%;
     min-width: 300px;
-  }
+    .right_item_title {
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .right_item_all {
+      font-weight: bold;
+    }
+    .right_item_header {
+      display: flex;
+      justify-content: space-between;
+      height: 10%;
+      margin-bottom: 15px;
+    }
+    .rightItem1 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .rightItem2 {
+      height: 300px;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      background-color: white;
+      .user_story_container {
+        height: 90%;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+    .rightItem3 {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: white;
 
-  .rightItem1 {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .rightItem2 {
-    height: 300px;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    background-color: white;
-  }
-
-  .user_story_container {
-    height: 90%;
-    overflow: auto;
-  }
-  .user_story_container::-webkit-scrollbar {
-    display: none;
-  }
-  .right_item3 {
-    height: 300px;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: white;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      display: none;
+      .recommendContainer {
+        height: 300px;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
   }
 
-  .right_item_header {
-    display: flex;
-    justify-content: space-between;
-    height: 10%;
-    margin-bottom: 15px;
-  }
-  .right_item_title {
-    color: rgba(0, 0, 0, 0.5);
-  }
-  .right_item_all {
-    font-weight: bold;
-  }
   .article_profile_content {
     margin: 0;
     color: rgba(0, 0, 0, 0.5);
@@ -239,12 +252,14 @@
     line-height: 120%;
     color: rgba(0, 0, 0, 0.3);
   }
-  /* ///////////////////////////////////////////////////////////////// */
 
   footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     text-align: center;
-    color: gray;
+    color: rgba(0, 0, 0, 0.3);
+    background-color: #fafafa;
     span {
       .footerLink {
         color: gray;
@@ -254,8 +269,6 @@
       }
     }
   }
-
-  /* ///////////////////////////////////////////////////////////////// */
 
   @media screen and (max-width: 1368px) {
     .article_profile_follow {
@@ -280,53 +293,55 @@
       display: flex;
       flex-direction: column;
       padding: 10px;
+      .main-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 1;
+        width: 100%;
+        margin: 0;
+        .right_item1 {
+          display: none;
+        }
+        .right_item2 {
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+        }
+      }
     }
-    .main-right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      order: 1;
-      width: 100%;
-      margin: 0;
-    }
+
     .feeds {
       order: 3;
       margin: 0;
     }
-    .right_item1 {
-      display: none;
-    }
-    .right_item2 {
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-    }
+
     .user_story_container {
       display: flex;
       overflow: auto;
       height: 100%;
       white-space: nowrap;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .user_container {
+        display: flex;
+        flex-direction: column;
+      }
+      .article_profile_content {
+        display: none;
+      }
     }
     .user_container {
       margin: 0 20px;
-    }
-    .user_story_container::-webkit-scrollbar {
-      display: none;
+      .article_profile {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        margin-bottom: 5px;
+      }
     }
 
-    .user_story_container .user_container {
-      display: flex;
-      flex-direction: column;
-    }
-    .user_container > .article_profile {
-      width: 50px;
-      height: 50px;
-      margin: 0;
-      margin-bottom: 5px;
-    }
-    .user_story_container .article_profile_content {
-      display: none;
-    }
     .right_item3 {
       width: 100%;
       display: none;
