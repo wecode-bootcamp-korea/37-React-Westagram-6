@@ -1,11 +1,10 @@
 import React from 'react';
-import '../Main/Main.scss';
 
-function CommentList(props) {
+const CommentList = props => {
   return (
     <li className="comment-li">
       <span className="comment-text">
-        <em>{props.idValue}</em>&nbsp;&nbsp;{props.item}
+        <em>{props.sampleName}</em>&nbsp;&nbsp;{props.item}
       </span>
       <div className="comment-btn-wrap">
         <button className="comment-heart-btn">
@@ -17,6 +16,6 @@ function CommentList(props) {
       </div>
     </li>
   );
-}
+};
 
 export default CommentList;

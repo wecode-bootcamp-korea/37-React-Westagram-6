@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import './Main.scss';
 import CommentList from '../Component/CommentList';
+import StoryUser from '../Component/StoryUser';
+import { ASIDE_TEXT } from '../Component/data';
+import './Main.scss';
+import RecommendUser from '../Component/RecommendUser';
 
-function Main() {
-  //코멘트 아이디, 코멘트 입력값
-  const [idValue, setIdValue] = useState('user007');
-  const [inputValue, setInputValue] = useState('');
-  //코멘트 입력값 저장소
-  const [inputValueList, setInputValueList] = useState([]);
-  //코멘트 버튼 유효성 검사
+const Main = () => {
+  const [sampleName, setSampleName] = useState('user007');
+  const [input, setInput] = useState('');
+  const [inputList, setInputList] = useState([]);
   const [isValid, setIsValid] = useState(false);
 
-  const post = e => {
-    e.preventDefault();
-    const copyArr = [...inputValueList];
-    copyArr.push(inputValue);
-    setInputValueList(copyArr);
-    setInputValue('');
+  const post = event => {
+    event.preventDefault();
+    setInputList(inputList.concat(input));
+    setInput('');
     setIsValid(false);
   };
 
@@ -87,7 +85,7 @@ function Main() {
                 <p className="user-id">galee326</p>
               </div>
 
-              <button id="dot">
+              <button id="feed-dot">
                 <i className="fa-solid fa-ellipsis" />
               </button>
             </div>
@@ -120,8 +118,10 @@ function Main() {
             </div>
 
             <ul className="comments-ul">
-              {inputValueList.map((item, i) => {
-                return <CommentList idValue={idValue} item={item} key={i} />;
+              {inputList.map((item, i) => {
+                return (
+                  <CommentList sampleName={sampleName} item={item} key={i} />
+                );
               })}
             </ul>
 
@@ -131,14 +131,14 @@ function Main() {
                 type="text"
                 placeholder="댓글 달기..."
                 onChange={e => {
-                  setInputValue(e.target.value);
+                  setInput(e.target.value);
                 }}
                 onKeyUp={e => {
                   e.target.value.length > 0
                     ? setIsValid(true)
                     : setIsValid(false);
                 }}
-                value={inputValue}
+                value={input}
               />
               <button
                 type="button"
@@ -170,46 +170,7 @@ function Main() {
               <h5>스토리</h5>
               <button>모두 보기</button>
             </div>
-
-            <div className="story-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user001</p>
-                <p className="timeline">16분 전</p>
-              </div>
-            </div>
-
-            <div className="story-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user002</p>
-                <p className="timeline">20분 전</p>
-              </div>
-            </div>
-
-            <div className="story-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user003</p>
-                <p className="timeline">22분 전</p>
-              </div>
-            </div>
-
-            <div className="story-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user004</p>
-                <p className="timeline">36분 전</p>
-              </div>
-            </div>
-
-            <div className="story-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user005</p>
-                <p className="timeline">40분 전</p>
-              </div>
-            </div>
+            <StoryUser />
           </section>
 
           <section className="recommend">
@@ -217,68 +178,21 @@ function Main() {
               <h5>회원님을 위한 추천</h5>
               <button>모두 보기</button>
             </div>
-
-            <div className="story-recommend-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user_1</p>
-                <p className="recommend-text">canon_mj님 외 2명이 팔로우</p>
-              </div>
-              <button className="follow" href="">
-                팔로우
-              </button>
-            </div>
-
-            <div className="story-recommend-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user_2</p>
-                <p className="recommend-text">mama_h님 외 5명이 팔로우</p>
-              </div>
-              <button className="follow">팔로우</button>
-            </div>
-
-            <div className="story-recommend-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user_3</p>
-                <p className="recommend-text">m_amah님 외 2명이 팔로우</p>
-              </div>
-              <button className="follow">팔로우</button>
-            </div>
-
-            <div className="story-recommend-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user_4</p>
-                <p className="recommend-text">mama_h님 외 5명이 팔로우</p>
-              </div>
-              <button className="follow">팔로우</button>
-            </div>
-
-            <div className="story-recommend-user">
-              <div className="user-image" />
-              <div className="user-info">
-                <p className="user-id">user_4</p>
-                <p className="recommend-text">mama_h님 외 5명이 팔로우</p>
-              </div>
-              <button className="follow">팔로우</button>
-            </div>
+            <RecommendUser />
           </section>
 
-          <footer>
+          <aside>
             <div className="site-info">
-              <p>
-                소개 · 도움말 · 홍보 센터 · API · 채용 정보 · 개인정보처리방침 ·
-                약관 · 위치 · 언어
-              </p>
+              {ASIDE_TEXT.map(item => (
+                <span>{item.text}</span>
+              ))}
               <p>© 2022 INSTAGRAM FROM META</p>
             </div>
-          </footer>
+          </aside>
         </div>
       </section>
     </>
   );
-}
+};
 
 export default Main;

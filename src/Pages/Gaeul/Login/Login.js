@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import './Login.scss';
 
-function Login() {
+const Login = () => {
   const [userId, setUserId] = useState('');
-  function saveUserId(event) {
+  const saveUserId = event => {
     setUserId(event.target.value);
-  }
+  };
 
   const [userPw, setUserPw] = useState('');
-  function saveUserPw(event) {
+  const saveUserPw = event => {
     setUserPw(event.target.value);
-  }
+  };
 
   const navigate = useNavigate();
 
@@ -85,6 +85,6 @@ function Login() {
       </div>
     </>
   );
-}
+};
 
 export default Login;
