@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../../../components/Nav/Nav';
+import Feeds from '../Component/Feeds';
 import StoryUser from '../Component/StoryUser';
 import RecommendUser from '../Component/RecommendUser';
 import { ASIDE_TEXT } from '../Component/data';
-import Feeds from '../Component/Feeds';
 
 const Main = () => {
+  const [feedList, setFeedList] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/feeds.json')
+      .then(response => response.json())
+      .then(result => setFeedList(result));
+  }, []);
+
   return (
     <>
       <header>
@@ -13,7 +21,18 @@ const Main = () => {
       </header>
 
       <section className="main">
-        <Feeds />
+        <div className="feeds">
+          {feedList.map(i => (
+            <Feeds
+              userId={i.userId}
+              userUrl={i.url}
+              userLike={i.like}
+              userLikeUser={i.likeUser}
+              key={i.userId}
+            />
+          ))}
+        </div>
+        {/* <Feeds feedList={feedList} /> */}
 
         <div className="main-right">
           <div className="id-info-box">

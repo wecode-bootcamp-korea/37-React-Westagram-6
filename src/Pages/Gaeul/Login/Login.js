@@ -14,6 +14,46 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  // function goToMain() {
+  //   navigate('/maing');
+  // }
+
+  function signUp(e) {
+    e.preventDefault();
+    fetch('http://10.58.2.36:3001/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValues.userId,
+        password: inputValues.password,
+      }),
+    });
+  }
+
+  function login(e) {
+    e.preventDefault();
+    fetch('http://10.58.2.36:3001/auth/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValues.userId,
+        password: inputValues.password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (!!data.accessToken) {
+          alert('환영합니다!');
+          localStorage.setItem('token', data.accessToken);
+          navigate('/maing');
+        } else if (data.message === 'INVALID_ID') {
+          alert('아이디를 확인해주세요!');
+        } else if (data.message === 'INVALID_PW') {
+          alert('비밀번호를 확인해주세요!');
+        }
+      });
+  }
+
   return (
     <>
       <section className="main-box">
@@ -36,9 +76,7 @@ const Login = () => {
           />
           <button
             className="login-btn"
-            onClick={() => {
-              navigate('/maing');
-            }}
+            onClick={login}
             disabled={
               inputValues.userId.includes('@') &&
               inputValues.password.length >= 5
@@ -70,7 +108,7 @@ const Login = () => {
 
       <section className="join-box">
         <p className="let-join">
-          계정이 없으신가요?<button>가입하기</button>
+          계정이 없으신가요?<button onClick={signUp}>가입하기</button>
         </p>
       </section>
 
