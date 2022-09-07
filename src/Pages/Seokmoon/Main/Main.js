@@ -4,7 +4,7 @@ import Comments from './Comments.js';
 import { FOOTER_LIST } from './uiData.js';
 import './Main.scss';
 import MainFeed from './MainFeed.js';
-import Nav from '../../../components/Nav';
+import Nav from '../../../components/Nav/Nav';
 
 function Main() {
   // const [userName] = useState('tjrans9248');
