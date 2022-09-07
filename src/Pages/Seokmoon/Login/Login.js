@@ -26,16 +26,52 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const goToMain = () => {
-    navigate('/mains');
-  };
+  // const goToMain = () => {
+  //   navigate('/mains');
+  // };
 
   const clickButton = e => {
     setButton(e.target.value);
-    inputValues.email.includes('@') > 0 && inputValues.password.length >= 5
+    inputValues.email.includes('@') > 0 && inputValues.password.length >= 8
       ? setButton(false)
       : setButton(true);
   };
+  //로그인
+  function signUp() {
+    fetch('http://10.58.2.36:3001/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValues.email,
+        password: inputValues.password,
+      }),
+    });
+    // .then((response) => response.json())
+    // .then((data) => console.log(data));
+  }
+
+  function logIn() {
+    fetch('http://10.58.2.36:3001/auth/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValues.email,
+        password: inputValues.password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.accessToken) {
+          alert('환영합니다!');
+          localStorage.setItem('token', data.accessToken);
+          navigate('/mains');
+        } else if (data.message === 'INVALID_ID') {
+          alert('아이디를 확인해주세요!');
+        } else if (data.message === 'INVALID_PW') {
+          alert('비밀번호를 확인해주세요!');
+        }
+      });
+  }
 
   return (
     <div className="first-main-box">
@@ -68,9 +104,18 @@ const Login = () => {
               className="login-button"
               id="click-login"
               disabled={loginBtn}
-              onClick={goToMain}
+              onClick={logIn}
             >
               로그인
+            </button>
+
+            <button
+              className="login-button"
+              id="click-login"
+              disabled={loginBtn}
+              onClick={signUp}
+            >
+              회원가입
             </button>
             {/* </Link> */}
 
