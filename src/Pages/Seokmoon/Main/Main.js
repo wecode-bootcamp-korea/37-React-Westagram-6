@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
-import './Main.scss';
-import InfoList from './InfoList.js';
+import React, { useEffect, useState } from 'react';
 import UserProfile from './UserProfile.js';
 import Comments from './Comments.js';
+import { FOOTER_LIST } from './uiData.js';
+import './Main.scss';
+import MainFeed from './MainFeed.js';
 
 function Main() {
-  const [userName] = useState('tjrans9248');
-  const [feedComments, setFeedComments] = useState([]);
-  const [comment, setComment] = useState('');
+  // const [userName] = useState('tjrans9248');
+  // const [feedComments, setFeedComments] = useState([]);
+  // const [comment, setComment] = useState('');
 
-  const post = e => {
-    const copyFeedComments = [...feedComments];
-    copyFeedComments.push(comment);
-    setFeedComments(copyFeedComments);
-    setComment('');
-  };
+  // const [feedList, setFeedList] = useState([]);
 
-  const onChange = e => {
-    setComment(e.target.value);
-  };
+  // useEffect(() => {
+  //   fetch('/data/feedList.json')
+  //     .then(response => response.json())
+  //     .then(result => setFeedList(result));
+  // }, []);
+
+  // const post = e => {
+  //   const copyFeedComments = [...feedComments];
+  //   copyFeedComments.push(comment);
+  //   setFeedComments(copyFeedComments);
+  //   setComment('');
+  // };
+
+  // const onChange = e => {
+  //   setComment(e.target.value);
+  // };
 
   return (
     <div>
@@ -52,7 +61,7 @@ function Main() {
               className="icon-image3"
             />
 
-            <div className="main-image-box-right profileButton">
+            <div className="main-image-box-right">
               <img
                 src="/images/Seokmoon/main.logo.jpeg"
                 className="main-image"
@@ -88,9 +97,11 @@ function Main() {
         <div className="main-container">
           <div className="main-feeds">
             <div className="article-box">
-              <div className="feed-nav">
+              <MainFeed />
+
+              <div className="main-right">
                 <div>
-                  <div className="main-image-box">
+                  <div className="right-box main-image-box-right-bottom">
                     <img
                       src="/images/Seokmoon/main.logo.jpeg"
                       className="main-image"
@@ -98,134 +109,55 @@ function Main() {
                     />
                   </div>
                 </div>
-                <div>
-                  <span className="user-id">tjrans9248</span>
-                  <i className="fa-solid fa-ellipsis i-dot" />
+                <div className="main-right-location">
+                  <div className="right-box-name">
+                    <strong>seokmoonyang</strong>
+                    <p style={{ color: 'grey' }}>seokmoon Yang(sean)</p>
+                  </div>
+                  <span className="right-box-letter">전환</span>
                 </div>
-              </div>
 
-              <div className="feed-main">
-                <img
-                  src="https://images.unsplash.com/photo-1661130774347-f7529bb2009f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
-                  alt=""
-                  className="feed-image"
-                />
-              </div>
-
-              <div className="feed-footer-back">
-                <div className="feed-footer">
-                  <div>
-                    <i className="fa-solid fa-heart feed-heart feed-icon" />
-                    <i className="fa-solid fa-comment feed-icon" />
-                    <i className="fa-solid fa-arrow-up-from-bracket feed-icon" />
+                <div className="story-box">
+                  <div className="user-recommendation">
+                    <span style={{ color: 'grey' }}>스토리</span>
+                    <span>
+                      <strong>모두보기</strong>
+                    </span>
                   </div>
 
-                  <div>
-                    <i className="fa-solid fa-bookmark feed-icon" />
+                  <div className="scroll">
+                    <UserProfile />
+                    <UserProfile />
+                    <UserProfile />
+                    <UserProfile />
                   </div>
                 </div>
 
-                <div className="comment-letter">
-                  <strong>tjrans9248</strong>님 <strong>외 10명</strong>이
-                  좋아합니다.
+                <div className="recommendation-box">
+                  <div className="user-recommendation">
+                    <span style={{ color: 'grey' }}>회원님을 위한 추천</span>
+                    <span>
+                      <strong>모두보기</strong>
+                    </span>
+                  </div>
+
+                  <UserProfile />
+                  <UserProfile />
+                  <UserProfile />
                 </div>
 
-                <div className="comment-letter">
-                  <p className="comment">
-                    <strong>seokmoonYang</strong> 올드카가 굉장히 멋있습니다....
-                  </p>
-                  <p className="comment">
-                    <strong>neceosecius</strong> 이건 얼마정도할까요???
-                  </p>
-                </div>
+                {/* <!-- Main right box bottom info --> */}
 
-                <div className="comment-input-box">
-                  {feedComments.map((commentArr, user) => {
+                <div className="information-list">
+                  {FOOTER_LIST.map(footerList => {
                     return (
-                      <div className="mainComments" key={user}>
-                        <Comments userName={userName} commentArr={commentArr} />
-                        {/* <Icon
-                            key={image}
-                          
-                          /> */}
-                      </div>
+                      <span key={footerList.id}>{footerList.footerName}</span>
                     );
                   })}
-                </div>
-
-                <div>
-                  <div className="border-top">
-                    <input
-                      className="input-comment"
-                      type="text"
-                      placeholder="댓글 달기..."
-                      style={{ fontSize: '18px' }}
-                      onChange={onChange}
-                      value={comment}
-                    />
-
-                    <input
-                      className="input-button"
-                      type="button"
-                      value="게시"
-                      onClick={post}
-                    />
-                  </div>
+                  <ul />
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="main-right">
-            <div>
-              <div className="right-box main-image-box-right-bottom">
-                <img
-                  src="/images/Seokmoon/main.logo.jpeg"
-                  className="main-image"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="main-right-location">
-              <div className="right-box-name">
-                <strong>seokmoonyang</strong>
-                <p style={{ color: 'grey' }}>seokmoon Yang(sean)</p>
-              </div>
-              <span className="right-box-letter">전환</span>
-            </div>
-
-            <div className="story-box">
-              <div className="user-recommendation">
-                <span style={{ color: 'grey' }}>스토리</span>
-                <span>
-                  <strong>모두보기</strong>
-                </span>
-              </div>
-
-              <div className="scroll">
-                <UserProfile />
-                <UserProfile />
-                <UserProfile />
-                <UserProfile />
-              </div>
-            </div>
-
-            <div className="recommendation-box">
-              <div className="user-recommendation">
-                <span style={{ color: 'grey' }}>회원님을 위한 추천</span>
-                <span>
-                  <strong>모두보기</strong>
-                </span>
-              </div>
-
-              <UserProfile />
-              <UserProfile />
-              <UserProfile />
-            </div>
-
-            {/* <!-- Main right box bottom info --> */}
-
-            <InfoList />
           </div>
         </div>
       </div>

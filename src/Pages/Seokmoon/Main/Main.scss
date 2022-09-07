@@ -4,38 +4,66 @@ $whiteColor: white;
 
 .background {
   background-color: $backgroundColor;
-}
 
-.nav-bar {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 90px;
+  .nav-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90px;
+  }
 }
 
 .nav-space {
   margin-left: 60px;
-}
 
-.icon-image1 {
-  width: 35px;
-  margin-right: 25px;
-}
+  .i-logo {
+    font-size: 30px;
+    font-weight: bold;
+    padding-right: 10px;
+  }
 
-.icon-image2 {
-  width: 35px;
-  margin-right: 25px;
-}
+  .logo-letter {
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+  }
 
-.icon-image3 {
-  width: 35px;
-  margin-right: 25px;
+  .search-icon {
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    left: 90px;
+    color: grey;
+  }
+
+  .search-box {
+    border: $whiteBorder;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: rgba(218, 212, 212, 0.409);
+  }
 }
 
 .nav-space-right {
   display: flex;
   justify-content: justify-evenly;
   align-items: center;
+
+  .icon-image1 {
+    width: 35px;
+    margin-right: 25px;
+  }
+
+  .icon-image2 {
+    width: 35px;
+    margin-right: 25px;
+  }
+
+  .icon-image3 {
+    width: 35px;
+    margin-right: 25px;
+  }
 }
 
 .main-image-box-right {
@@ -46,17 +74,16 @@ $whiteColor: white;
   margin-left: 15px;
 }
 
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 li {
   width: 200px;
   height: 50px;
   list-style: none;
-}
-
-.profile-icon {
-  font-size: 25px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 10px;
 }
 
 .profilePopup {
@@ -69,48 +96,27 @@ li {
   box-shadow: 1px 1px 10px lightgray;
   border-radius: 8px;
   display: none;
-}
 
-.log-out-box {
-  display: flex;
-  justify-content: center;
-}
+  .profile-icon {
+    font-size: 25px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
 
-.log-out-letter {
-  border-top: 1px solid lightgrey;
-  text-align: center;
-  font-size: 16px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 30px;
-}
+  .log-out-box {
+    display: flex;
+    justify-content: center;
+  }
 
-.logo-letter {
-  font-size: 20px;
-  font-family: 'Lobster', cursive;
-}
-
-.i-logo {
-  font-size: 30px;
-  font-weight: bold;
-  padding-right: 10px;
-}
-
-.search-icon {
-  font-weight: bold;
-  font-size: 15px;
-  position: relative;
-  left: 90px;
-  color: grey;
-}
-
-.search-box {
-  border: $whiteBorder;
-  border-radius: 5px;
-  text-align: center;
-  width: 200px;
-  height: 30px;
-  background-color: rgba(218, 212, 212, 0.409);
+  .log-out-letter {
+    border-top: 1px solid lightgrey;
+    text-align: center;
+    font-size: 16px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 30px;
+  }
 }
 
 .main-container {
@@ -120,7 +126,24 @@ li {
   height: 1250px;
 }
 
+.main-image-box {
+  border: 1px solid red;
+  width: 50px;
+  height: 50px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-top: 3px;
+}
+
+.article-box {
+  border: $whiteBorder;
+  height: 1100px;
+  width: 590px;
+}
+
 .main-feeds {
+  border: 1px solid red;
   width: 600px;
   height: 1200px;
   margin-left: 100px;
@@ -130,50 +153,21 @@ li {
   margin-right: 70px;
 }
 
-.icon-image {
-  width: 30px;
-  height: 30px;
-  padding-right: 30px;
-  color: black;
-}
-
-.article-box {
-  border: $whiteBorder;
-  height: 1100px;
-  width: 590px;
-}
-
 .feed-nav {
-  border: 1px solid rgb(224, 221, 221);
-  height: 56px;
+  border: 1px solid red;
+  height: 70px;
   display: flex;
   background-color: $whiteColor;
-}
-
-.feed-main {
-  height: 700px;
-}
-
-.main-image-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 70%;
-  overflow: hidden;
-  margin-left: 15px;
-  margin-top: 3px;
-}
-
-.main-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding-top: 10px;
+  margin-top: 40px;
 }
 
 .user-id {
   color: black;
   width: 100px;
+  right: -20px;
   position: relative;
-  right: -10px;
+
   top: 20px;
   font-weight: bold;
 }
@@ -184,28 +178,33 @@ li {
   top: 20px;
 }
 
+.feed-main {
+  height: 700px;
+
+  .feed-image {
+    width: 588px;
+    height: 700px;
+  }
+}
+
 .feed-footer-back {
   background-color: $whiteColor;
-}
-.feed-image {
-  width: 588px;
-  height: 700px;
-}
 
-.feed-footer {
-  background-color: $whiteColor;
-  height: 45px;
-  display: flex;
-  justify-content: space-between;
-}
+  .feed-footer {
+    background-color: $whiteColor;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.feed-icon {
-  font-size: 25px;
-  padding: 0.3em;
-}
+  .feed-heart {
+    color: red;
+  }
 
-.feed-heart {
-  color: red;
+  .feed-icon {
+    font-size: 25px;
+    padding: 0.3em;
+  }
 }
 
 .comment-letter {
@@ -216,6 +215,7 @@ li {
 
 .comment {
   padding-top: 8px;
+  // font-weight: bold;
 }
 
 input::placeholder {
@@ -265,20 +265,6 @@ input::placeholder {
   height: 100px;
 }
 
-.right-recommendation {
-  width: 378px;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.user-recommendation {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding-top: 20px;
-}
-
 .main-image-box-right-bottom {
   width: 60px;
   height: 60px;
@@ -286,6 +272,13 @@ input::placeholder {
   overflow: hidden;
   margin-left: 15px;
   margin-top: 3px;
+}
+
+.right-recommendation {
+  width: 378px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-image-box-right {
@@ -300,20 +293,26 @@ input::placeholder {
 .main-right-location {
   display: flex;
   justify-content: space-around;
+
+  .right-box-name {
+    position: relative;
+    left: 35px;
+    bottom: 45px;
+  }
+
+  .right-box-letter {
+    color: rgb(0, 225, 255);
+    font-weight: bold;
+    position: relative;
+    bottom: 30px;
+    left: 55px;
+  }
 }
 
 .right-box-name {
   position: relative;
   left: 35px;
   bottom: 45px;
-}
-
-.right-box-letter {
-  color: rgb(0, 225, 255);
-  font-weight: bold;
-  position: relative;
-  bottom: 30px;
-  left: 55px;
 }
 
 .right-id {
@@ -334,6 +333,13 @@ input::placeholder {
   height: 100px;
 }
 
+.user-recommendation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
 .scroll {
   overflow: scroll;
   height: 250px;
@@ -350,14 +356,9 @@ input::placeholder {
 }
 
 .information-list {
-  position: relative;
-  top: 250px;
-}
-
-.information-list a {
-  font-size: 20px;
-  text-decoration: none;
-  color: lightgrey;
+  margin-top: 240px;
+  font-size: 18px;
+  color: lightgray;
 }
 
 .company-info a {
