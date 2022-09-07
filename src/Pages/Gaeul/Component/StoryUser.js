@@ -5,7 +5,7 @@ const StoryUser = () => {
   return (
     <>
       {STORY_USER_SAMPLE.map(item => (
-        <div className="story-user">
+        <div className="story-user" key={item.id}>
           <div className="user-image" />
           <div className="user-info">
             <p className="user-id">{item.id}</p>

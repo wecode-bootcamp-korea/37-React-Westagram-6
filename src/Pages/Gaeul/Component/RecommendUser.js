@@ -5,7 +5,7 @@ const RecommendUser = () => {
   return (
     <>
       {RECOMMEND_USER_SAMPLE.map(item => (
-        <div className="story-recommend-user">
+        <div className="story-recommend-user" key={item.id}>
           <div className="user-image" />
           <div className="user-info">
             <p className="user-id">{item.id}</p>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../Nav/Nav.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -9,6 +8,7 @@ import {
   faGear,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+
 function Nav() {
   const [menuState, setMenuState] = useState(false);
   const [searchState, setSearchState] = useState(false);
@@ -17,7 +17,7 @@ function Nav() {
     <header className="Nav">
       <div className="navLogoContainer">
         <FontAwesomeIcon icon={faInstagram} className="navIcon" />
-        <p className="navLogo">westagram</p>
+        <p className="navLogo">Westagram</p>
       </div>
       <div className="searchInputContainer">
         <input

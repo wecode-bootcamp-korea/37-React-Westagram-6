@@ -4,7 +4,7 @@ const CommentList = props => {
   return (
     <li className="comment-li">
       <span className="comment-text">
-        <em>{props.sampleName}</em>&nbsp;&nbsp;{props.item}
+        <em>wecode_bootcamp</em>&nbsp;&nbsp;{props.item}
       </span>
       <div className="comment-btn-wrap">
         <button className="comment-heart-btn">

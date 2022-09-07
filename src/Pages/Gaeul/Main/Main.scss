@@ -11,141 +11,6 @@ p {
   letter-spacing: 0.2px;
 }
 
-em {
-  font-weight: 700;
-}
-
-.modal-bg {
-  display: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-}
-
-.hidden {
-  display: none;
-}
-
-/* header */
-.header-wrap {
-  background-color: $white;
-  border-bottom: 1px solid #eaeaea;
-  padding: 0 100px;
-  margin-bottom: 50px;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .logo-wrap {
-    display: flex;
-
-    .insta-logo {
-      width: 20px;
-      height: 20px;
-    }
-
-    .logo-line {
-      width: 1px;
-      height: 25px;
-      background-color: black;
-      margin: 0 15px;
-    }
-
-    .logo-text {
-      font-family: 'Lobster';
-      font-size: 25px;
-      margin-right: 15px;
-    }
-  }
-
-  .search-wrap {
-    position: relative;
-    margin-right: 15px;
-
-    & #search-icon {
-      font-size: 12px;
-      color: #adafb1;
-      position: absolute;
-      top: 7px;
-      left: 65px;
-    }
-
-    .search-bar {
-      width: 190px;
-      height: 25px;
-      border: 1px solid #eaeaea;
-      border-radius: 2px;
-      padding: 5px;
-      background-color: #fafafa;
-      outline: none;
-
-      &::placeholder {
-        text-align: center;
-        color: #adafb1;
-      }
-    }
-  }
-
-  .icons {
-    width: 130px;
-    .icon-explore,
-    .icon-heart,
-    .icon-mypage {
-      width: 23px;
-      cursor: pointer;
-    }
-
-    .icon-heart {
-      margin: 0 15px;
-    }
-
-    .icon-mypage {
-      img {
-        width: 23px;
-      }
-    }
-
-    button {
-      background-color: $white;
-    }
-
-    .modal-content {
-      background-color: $white;
-      width: 200px;
-      position: absolute;
-      z-index: 2;
-      top: 40px;
-      right: -10px;
-      border-radius: 2.5px;
-      box-shadow: 2px 3px 3px 3px rgba(0, 0, 0, 0.2);
-
-      button {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        font-size: 13px;
-
-        &:nth-child(2) {
-          i {
-            margin-right: 8px;
-          }
-        }
-
-        &:nth-child(4) {
-          border-top: 1px solid #adafb1;
-        }
-      }
-
-      i {
-        margin-right: 5px;
-      }
-    }
-  }
-}
-
 /* main */
 .main {
   display: flex;
@@ -153,15 +18,16 @@ em {
   padding-bottom: 100px;
 
   .feeds {
-    width: 470px;
-    height: auto;
-    background-color: white;
-    border: 1px solid #eaeaea;
-    border-radius: 3px;
-    margin-right: 25px;
+    margin-right: 15px;
 
     .article-wrap {
+      width: 470px;
+      height: auto;
+      background-color: white;
+      border: 1px solid #eaeaea;
+      border-radius: 5px;
       overflow: hidden;
+      margin-bottom: 20px;
 
       .user-bar {
         height: 60px;
@@ -187,7 +53,7 @@ em {
 
           .user-id {
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 700;
           }
         }
 
@@ -246,7 +112,7 @@ em {
         p {
           font-size: 13px;
           b {
-            font-weight: 500;
+            font-weight: 700;
           }
         }
 
@@ -268,6 +134,10 @@ em {
           padding: 3px 0;
           display: flex;
           justify-content: space-between;
+
+          em {
+            font-weight: 700;
+          }
 
           .comment-heart-btn {
             background-color: $white;
@@ -496,26 +366,13 @@ em {
 
   .main {
     display: block;
-  }
 
-  .feeds {
-    margin: 0 auto;
-  }
-
-  .id-info-box,
-  .story,
-  .recommend {
-    display: none;
+    .feeds {
+      margin: 0 auto;
+    }
   }
 
   .main-right {
-    width: 470px;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .site-info {
-    width: 470px;
-    text-align: center;
+    display: none;
   }
 }

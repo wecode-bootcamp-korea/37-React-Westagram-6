@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-@mixin loginInput {
+@mixin login-input {
   width: 266px;
   height: 36px;
   border: $boxBorder;
@@ -46,14 +46,14 @@ body {
     margin-bottom: 8px;
 
     .nameEmail {
-      @include loginInput;
+      @include login-input;
       &:focus {
         outline: 1px solid #a8a8a8;
       }
     }
 
     .passWord {
-      @include loginInput;
+      @include login-input;
       &:focus {
         outline: 1px solid #a8a8a8;
       }
@@ -130,10 +130,13 @@ body {
     font-size: 12px;
     text-align: center;
 
-    a {
+    button {
       color: $faceBookColor;
+      background-color: transparent;
+      cursor: pointer;
+
       &:visited {
-        color: $faceBookColor;
+        color: transparent;
       }
     }
   }
@@ -152,10 +155,11 @@ body {
     font-size: 14px;
   }
 
-  a {
+  button {
     font-weight: bold;
     color: $instaBlue;
-    margin-left: 5px;
+    background-color: transparent;
+    cursor: pointer;
   }
 }
 
