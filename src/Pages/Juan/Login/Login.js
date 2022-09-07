@@ -17,6 +17,45 @@ function Login() {
       inputValue.email.includes('@') && inputValue.password.length >= 5;
     setDisabled(!isVaild);
   };
+
+  const loginFetch = () => {
+    fetch('http://10.58.2.194:3000/auth/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValue.email,
+        password: inputValue.password,
+      }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json(); // 5
+        }
+        throw new Error('통신실패!'); // 6
+      })
+      .catch(error => console.log(error)) // 7
+      .then(data => {
+        localStorage.setItem('token', data.accessToken);
+        alert('로그인 성공');
+      });
+  };
+  const signupFetch = () => {
+    fetch('http://10.58.2.194:3000/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: inputValue.email,
+        password: inputValue.password,
+      }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('에러 발생!'); //reponse.ok가 true가 아닐 경우 error를 throw
+      })
+      .catch(error => console.log(error));
+  };
   return (
     <div className="login">
       <div className="container">
@@ -35,11 +74,14 @@ function Login() {
           name="password"
           onChange={handleInput}
         />
-        <Link to="/Mainj">
-          <button className="loginBtn" disabled={disabled}>
-            로그인
-          </button>
-        </Link>
+        {/* <Link to="/Mainj"> */}
+        <button onClick={loginFetch} className="loginBtn" disabled={disabled}>
+          로그인
+        </button>
+        <button onClick={signupFetch} className="loginBtn">
+          회원가입
+        </button>
+        {/* </Link> */}
         <Link to="/Loginj">
           <p className="pwdFind">비밀번호를 잊으셨나요?</p>
         </Link>
