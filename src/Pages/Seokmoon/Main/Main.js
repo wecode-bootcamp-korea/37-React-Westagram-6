@@ -4,6 +4,7 @@ import Comments from './Comments.js';
 import { FOOTER_LIST } from './uiData.js';
 import './Main.scss';
 import MainFeed from './MainFeed.js';
+import Nav from '../../../components/Nav';
 
 function Main() {
   // const [userName] = useState('tjrans9248');
@@ -32,7 +33,8 @@ function Main() {
   return (
     <div>
       <div className="background">
-        <div className="nav-bar">
+        <Nav />
+        {/* <div className="nav-bar">
           <div>
             <div className="nav-space">
               <i className="fa-brands fa-instagram i-logo" />
@@ -90,7 +92,7 @@ function Main() {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* <!-- main --> */}
 
