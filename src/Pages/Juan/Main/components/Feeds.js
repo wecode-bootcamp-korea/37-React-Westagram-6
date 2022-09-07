@@ -10,108 +10,111 @@ import {
   faHeart,
 } from '@fortawesome/free-regular-svg-icons';
 
-function Feeds(props) {
-  const { articleData } = props;
+function Feeds({ data }) {
+  const [inputValue, setInputValue] = useState('');
   const [commentArr, setCommentArr] = useState([]);
+  const [commentId, setCommentId] = useState(1);
+  const { id, img_url, user_id, content, comment } = data;
 
-  const replySumbit = e => {
-    const replyInput = document.querySelector('.replyInput');
-    let copy = [...commentArr];
-    copy.push(replyInput.value);
-    setCommentArr(copy);
-    replyInput.value = '';
-    e.preventDefault();
+  const inputValueHandle = event => {
+    setInputValue({ id: commentId, content: event.target.value });
   };
-  return articleData.map(data => {
-    return (
-      <div className="article" key={data.id}>
-        <section className="articleHeader">
-          <img
-            src={data.img_url}
-            alt="유저 프로필"
-            className="userProfileImgCircle"
-          />
-          <div className="userId">{data.user_id}</div>
-          <FontAwesomeIcon icon={faEllipsisVertical} className="ellipsis" />
-        </section>
+  const replySumbit = e => {
+    e.preventDefault();
+    setCommentArr(prev => [inputValue, ...prev]);
+    setCommentId(prev => prev + 1);
+    setInputValue({ id: commentId, content: '' });
+    // const inputValuea = replyInput.value;
+    // let copy = [...articleData.comment];
+    // copy = [
+    //   ...articleData.comment,
+    //   {
+    //     id: articleData.comment.length + 1,
+    //     user_id: 'new_reply',
+    //     cotent: inputValue,
+    //   },
+    // ];
+  };
+  return (
+    <div className="article" key={id}>
+      <section className="articleHeader">
+        <img src={img_url} alt="유저 프로필" className="userProfileImgCircle" />
+        <div className="userId">{user_id}</div>
+        <FontAwesomeIcon icon={faEllipsisVertical} className="ellipsis" />
+      </section>
 
-        <img
-          src={data.img_url}
-          alt="피드 이미지"
-          className="articleContentImg"
-        />
+      <img src={img_url} alt="피드 이미지" className="articleContentImg" />
 
-        <div className="articleReplyContainer">
-          <div className="articleBtnContainer">
-            <FontAwesomeIcon icon={faHeart} className="articleBtn" />
-            <FontAwesomeIcon icon={faComment} className="articleBtn" />
-            <FontAwesomeIcon
-              icon={faArrowUpFromBracket}
-              className="articleBtn"
-            />
-            <FontAwesomeIcon icon={faBookmark} className="articleBtn" />
-          </div>
-
-          <div className="articleLike">
-            <span className="userProfileImgCircle" />
-            <span className="userId">h.j.jang</span>님외 &nbsp;
-            <span className="likeCount">7</span>명이 좋아합니다.
-          </div>
-
-          <div className="articleText">
-            <div>
-              <span className="userId">{data.user_id}</span>
-              <span className="replyText">{data.content}</span>
-            </div>
-          </div>
-
-          <ul className="replyContainer">
-            <UserReply commentArr={commentArr} setCommentArr={setCommentArr} />
-          </ul>
-
-          <p className="articleTime">42분전</p>
+      <div className="articleReplyContainer">
+        <div className="articleBtnContainer">
+          <FontAwesomeIcon icon={faHeart} className="articleBtn" />
+          <FontAwesomeIcon icon={faComment} className="articleBtn" />
+          <FontAwesomeIcon icon={faArrowUpFromBracket} className="articleBtn" />
+          <FontAwesomeIcon icon={faBookmark} className="articleBtn" />
         </div>
 
-        <form onSubmit={replySumbit} className="replyForm">
-          <input
-            type="text"
-            placeholder="댓글 달기..."
-            className="replyInput"
-          />
-          <button className="replyBtn" type="submit" onClick={replySumbit}>
-            게시
-          </button>
-        </form>
+        <div className="articleLike">
+          <span className="userProfileImgCircle" />
+          <span className="userId">h.j.jang</span>님외 &nbsp;
+          <span className="likeCount">7</span>명이 좋아합니다.
+        </div>
+
+        <div className="articleText">
+          <div>
+            <span className="userId">{user_id}</span>
+            <span className="replyText">{content}</span>
+          </div>
+        </div>
+
+        <ul className="replyContainer">
+          {commentArr.map(e => {
+            return <UserReply key={e.id} commentArr={e} />;
+          })}
+        </ul>
+
+        <p className="articleTime">42분전</p>
       </div>
-    );
-  });
+
+      <form onSubmit={replySumbit} className="replyForm">
+        <input
+          type="text"
+          placeholder="댓글 달기..."
+          className="replyInput"
+          onChange={inputValueHandle}
+          value={inputValue.content || ''}
+        />
+        <button className="replyBtn" type="submit" onClick={replySumbit}>
+          게시
+        </button>
+      </form>
+    </div>
+  );
 }
 
 function UserReply(props) {
-  return props.commentArr.map(function (el, i) {
-    return (
-      <li key={el} className="userReply">
-        <div className="replyTextContainer">
-          <p className="userId">neceosecius</p>
-          <p className="replyText">{props.commentArr[i]}</p>
-        </div>
-        <div className="replyBtnContainer">
-          <button
-            onClick={() => {
-              let copy = [...props.commentArr];
-              copy.splice(i, 1);
-              props.setCommentArr(copy);
-            }}
-            className="deleteBtn"
-          >
-            x
-          </button>
-          <button>
-            <i className="fa-regular fa-heart reple_heart" />
-          </button>
-        </div>
-      </li>
-    );
-  });
+  const { commentArr } = props;
+  return (
+    <li className="userReply">
+      <div className="replyTextContainer">
+        <p className="userId">new_reply</p>
+        <p className="replyText">{commentArr.content}</p>
+      </div>
+      <div className="replyBtnContainer">
+        <button
+          // onClick={() => {
+          //   let copy = [...props.commentArr];
+          //   copy.splice(i, 1);
+          //   props.setCommentArr(copy);
+          // }}
+          className="deleteBtn"
+        >
+          x
+        </button>
+        <button>
+          <i className="fa-regular fa-heart reple_heart" />
+        </button>
+      </div>
+    </li>
+  );
 }
 export default Feeds;

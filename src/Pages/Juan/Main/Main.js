@@ -7,7 +7,6 @@ import '../Main/Main.scss';
 
 function Main() {
   const [articleData, setArticleData] = useState([]);
-  const [commentArr, setCommentArr] = useState([]);
 
   useEffect(() => {
     fetch('/data/articleDataJuan.json', {
@@ -18,17 +17,16 @@ function Main() {
         setArticleData(data);
       });
   }, []);
+
   return (
     <>
       <Nav />
       <div className="Main">
         <main>
           <section className="feeds">
-            <Feeds
-              commentArr={commentArr}
-              setCommentArr={setCommentArr}
-              articleData={articleData}
-            />
+            {articleData.map(data => {
+              return <Feeds key={data.id} data={data} />;
+            })}
           </section>
           <Aside />
         </main>
