@@ -16,7 +16,7 @@ function Feed(props) {
     setFeedComments(copyFeedComments);
     setComment('');
   };
-  console.log(props);
+
   return (
     <div key={props.id}>
       <div className="feed-nav">
