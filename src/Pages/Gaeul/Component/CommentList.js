@@ -1,14 +1,14 @@
 import React from 'react';
 
-const CommentList = props => {
+const CommentList = ({ item }) => {
   return (
     <li className="comment-li">
       <span className="comment-text">
-        <em>wecode_bootcamp</em>&nbsp;&nbsp;{props.item}
+        <em>wecode_bootcamp</em>&nbsp;&nbsp;{item}
       </span>
       <div className="comment-btn-wrap">
         <button className="comment-heart-btn">
-          <i class="fa-regular fa-heart" />
+          <i className="fa-regular fa-heart" />
         </button>
         <button className="delete-btn">
           <i className="fa-solid fa-trash-can" />

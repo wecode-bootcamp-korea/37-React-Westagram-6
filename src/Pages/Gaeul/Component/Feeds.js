@@ -4,19 +4,13 @@ import CommentList from './CommentList';
 const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
   const [input, setInput] = useState('');
   const [inputList, setInputList] = useState([]);
-  // const [inputList  Id, setInputListId] = useState(1);
   const [isValid, setIsValid] = useState(false);
 
   const post = event => {
     event.preventDefault();
-    // setInputListId(prev => prev + 1);
     setInputList(inputList.concat(input));
     setInput('');
   };
-
-  // const remove = event => {
-  //   setInputList(inputList.filter(i => i.id !== event.id));
-  // };
 
   return (
     <div className="article-wrap" key={userId}>
@@ -46,7 +40,7 @@ const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
         </div>
 
         <button className="bookmark">
-          <i class="fa-regular fa-bookmark" />
+          <i className="fa-regular fa-bookmark" />
         </button>
       </div>
 
@@ -74,7 +68,7 @@ const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
           onKeyUp={e => {
             e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
           }}
-          // value={input}
+          value={input}
         />
         <button
           type="button"

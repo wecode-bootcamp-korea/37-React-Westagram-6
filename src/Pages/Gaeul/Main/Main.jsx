@@ -32,7 +32,6 @@ const Main = () => {
             />
           ))}
         </div>
-        {/* <Feeds feedList={feedList} /> */}
 
         <div className="main-right">
           <div className="id-info-box">

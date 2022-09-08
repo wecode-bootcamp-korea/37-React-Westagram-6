@@ -11,9 +11,7 @@ const RecommendUser = () => {
             <p className="user-id">{item.id}</p>
             <p className="recommend-text">{item.text}</p>
           </div>
-          <button className="follow" href="">
-            팔로우
-          </button>
+          <button className="follow">팔로우</button>
         </div>
       ))}
     </>
