@@ -9,9 +9,7 @@ function Main() {
   const [articleData, setArticleData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/articleDataJuan.json', {
-      method: 'GET',
-    })
+    fetch('/data/articleDataJuan.json')
       .then(response => response.json())
       .then(data => {
         setArticleData(data);
@@ -19,20 +17,18 @@ function Main() {
   }, []);
 
   return (
-    <>
+    <div className="main">
       <Nav />
-      <div className="Main">
-        <main>
-          <section className="feeds">
-            {articleData.map(data => {
-              return <Feeds key={data.id} data={data} />;
-            })}
-          </section>
-          <Aside />
-        </main>
-        <Footer />
-      </div>
-    </>
+      <main>
+        <section className="feeds">
+          {articleData.map(feeds => {
+            return <Feeds key={feeds.id} feeds={feeds} />;
+          })}
+        </section>
+        <Aside />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

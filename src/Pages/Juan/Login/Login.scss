@@ -4,6 +4,7 @@
   align-items: center;
   height: 100vh;
   background-color: #fafafa;
+
   .container {
     display: flex;
     flex-direction: column;
@@ -13,6 +14,7 @@
     padding: 3rem;
     min-height: 80vh;
   }
+
   .logo {
     font-family: 'Lobster', cursive;
     font-size: 100px;
@@ -20,7 +22,6 @@
   }
 
   .loginInput {
-    display: block;
     width: 80%;
     font-size: 15px;
     margin-bottom: 20px;
@@ -31,7 +32,6 @@
   }
 
   .loginBtn {
-    display: block;
     width: 150px;
     margin: 12px 0;
     padding: 1rem;
@@ -47,6 +47,7 @@
     opacity: 0.3;
     cursor: default;
   }
+
   .pwdFind {
     text-decoration: none;
     color: #395d86;

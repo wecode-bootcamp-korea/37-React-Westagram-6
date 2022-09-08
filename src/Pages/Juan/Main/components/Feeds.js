@@ -10,8 +10,8 @@ import {
   faHeart,
 } from '@fortawesome/free-regular-svg-icons';
 
-function Feeds({ data }) {
-  const { id, img_url, user_id, content } = data;
+function Feeds({ feeds }) {
+  const { id, img_url, user_id, content } = feeds;
   const [inputValue, setInputValue] = useState('');
   const [commentArr, setCommentArr] = useState([]);
   const [commentId, setCommentId] = useState(1);

@@ -4,19 +4,14 @@ import './Login.scss';
 
 function Login() {
   const [inputValue, setInputValue] = useState({ email: '', password: '' });
-  const [disabled, setDisabled] = useState(true);
 
   const handleInput = e => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
-    validation();
   };
 
-  const validation = () => {
-    const isVaild =
-      inputValue.email.includes('@') && inputValue.password.length >= 5;
-    setDisabled(!isVaild);
-  };
+  const isVaild =
+    inputValue.email.includes('@') && inputValue.password.length >= 5;
 
   const loginFetch = () => {
     fetch('http://10.58.2.194:3000/auth/signin', {
@@ -68,6 +63,7 @@ function Login() {
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"
           name="email"
+          value={inputValue.email}
           onChange={handleInput}
         />
 
@@ -76,10 +72,11 @@ function Login() {
           type="password"
           placeholder="비밀번호"
           name="password"
+          value={inputValue.password}
           onChange={handleInput}
         />
 
-        <button onClick={loginFetch} className="loginBtn" disabled={disabled}>
+        <button onClick={loginFetch} className="loginBtn" disabled={!isVaild}>
           로그인
         </button>
 
