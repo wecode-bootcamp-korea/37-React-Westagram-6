@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "user_id": "shinju4n",
+    "content": "2022.07.30 즐거웠던 빠지여행",
+    "img_url": "https://ldb-phinf.pstatic.net/20210722_112/1626932359894VWQ9X_JPEG/gTC9pV5mNgZie45yaZkKNQZq.JPG.jpg?type=f804_408_60_sharpen",
+    "comment": [{ "id": 1, "user_id": "awfs2s1", "content": "어쩌구 저쩌구" }]
+  },
+  {
+    "id": 2,
+    "user_id": "dangerousguyleebyunggun",
+    "content": "그럴거면 회사 접어라",
+    "img_url": "https://img.hankyung.com/photo/202008/01.23426572.1-1200x.jpg",
+    "comment": [
+      { "id": 1, "user_id": "awfs2s1", "content": "어쩌구 저쩌구" },
+      { "id": 2, "user_id": "shinju4n", "content": "사랑해요 침착맨" }
+    ]
+  },
+  {
+    "id": 3,
+    "user_id": "hoomin_zoo",
+    "content": "SSG 닷컴",
+    "img_url": "https://post-phinf.pstatic.net/MjAyMDA0MTdfMTY1/MDAxNTg3MTA0MDEyODc5.DeZytco2WZfoCCxud9YTu473ZlpWw5D8ka9JWM9pC2cg.th4ij1Z14xw-GnmSQduuUXaGK50ekdNgEbtOo6hQDYsg.PNG/%EB%8B%AC%EA%B1%80.PNG?type=w1200",
+    "comment": [{ "id": 1, "user_id": "awfs2s1", "content": "어쩌구 저쩌구" }]
+  },
+  {
+    "id": 4,
+    "user_id": "doge_the_space",
+    "content": "화성 갈끄니까~",
+    "img_url": "https://i1.sndcdn.com/artworks-8hUNunJfPf7jLpzY-jYmGvg-t500x500.jpg",
+    "comment": [{ "id": 1, "user_id": "awfs2s1", "content": "어쩌구 저쩌구" }]
+  },
+  {
+    "id": 5,
+    "user_id": "ttabong_gosuemdoci",
+    "content": "따봉고슴도치야 고마워",
+    "img_url": "https://img.animalplanet.co.kr/news/2019/08/10/700/v4q0b0ff4hcpew1g6t39.jpg",
+    "comment": [{ "id": 1, "user_id": "awfs2s1", "content": "어쩌구 저쩌구" }]
+  }
+]

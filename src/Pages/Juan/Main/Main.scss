@@ -1,0 +1,383 @@
+@import '../../../styles/variable.scss';
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 87vh;
+  padding: 20px;
+  background-color: $background-color;
+
+  .feeds {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .article {
+      background-color: white;
+      margin-bottom: 50px;
+      border: $boder-light;
+
+      .articleHeader {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 1rem 1rem;
+        border-bottom: $boder-light;
+
+        .ellipsis {
+          position: absolute;
+          font-size: 18px;
+          right: 0;
+          margin-right: 15px;
+          color: rgba(0, 0, 0, 0.8);
+        }
+
+        .article_profile {
+          margin-right: 10px;
+          // background-image: url('../../assets/images/IMG_6500.JPG');
+        }
+      }
+      .articleContentImg {
+        width: 500px;
+        min-width: 500px;
+        height: 450px;
+        background: url('https://img.khan.co.kr/news/2022/02/01/l_2022020101000012600000501.webp')
+          center center cover no-repeat;
+      }
+
+      .articleReplyContainer {
+        padding: 10px;
+
+        .articleBtnContainer {
+          position: relative;
+          display: flex;
+          align-items: center;
+          font-size: 25px;
+
+          .articleBtn {
+            margin-right: 15px;
+          }
+
+          :last-child {
+            position: absolute;
+            right: 0;
+          }
+        }
+
+        .userReply {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 2px;
+          width: 100%;
+
+          .replyTextContainer {
+            display: flex;
+            align-items: center;
+
+            .replyText {
+              margin-left: 5px;
+            }
+          }
+
+          .replyBtnContainer {
+            display: flex;
+            justify-content: flex-end;
+            button {
+              background: none;
+            }
+          }
+        }
+        .articleLike {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+        }
+
+        .likeCount {
+          font-weight: bolder;
+        }
+      }
+
+      .replyContainer {
+        max-height: 80px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .replyForm {
+        position: relative;
+
+        .replyInput {
+          width: 100%;
+          height: 50px;
+          border: none;
+          padding: 0.5rem;
+          border-top: $boder-light;
+        }
+
+        .replyBtn {
+          position: absolute;
+          font-size: 15px;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          border: none;
+          background: none;
+          color: lightblue;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.userProfileImgCircle {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: $bg-size;
+}
+
+.userId {
+  font-weight: bolder;
+  margin-right: 5px;
+}
+
+.reple_heart {
+  border: none;
+  background: none;
+}
+
+.articleTime {
+  font-size: 15px;
+  margin-top: 5px;
+  color: $gray;
+}
+
+.reple_profile {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  // background-image: url('../../assets/images/face.png');
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+
+.aside {
+  width: 30%;
+  min-width: 300px;
+
+  .right_item_title {
+    color: $gray;
+  }
+
+  .right_item_all {
+    font-weight: bold;
+  }
+
+  .right_item_header {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    margin-bottom: 15px;
+  }
+
+  .rightItem1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .aside_story {
+    height: 300px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: $boder-light;
+    border-radius: 5px;
+    background-color: white;
+
+    .user_story_container {
+      height: 90%;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+  .aside_recommend {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: $boder-light;
+    background-color: white;
+
+    .recommendContainer {
+      height: 250px;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+.article_profile_content {
+  margin: 0;
+  color: $gray;
+}
+
+.user_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.user_img {
+  width: 50px;
+  height: 50px;
+  background-image: url('https://velog.velcdn.com/images/inyong_pang/post/f0ea605d-c2d9-460c-aedc-a0ec77e6759f/wecode.png');
+  background-size: cover;
+}
+
+.follow_btn {
+  position: absolute;
+  right: 0;
+  color: #52a3f2;
+}
+
+.onStory {
+  border: 2px solid red;
+}
+
+.article_profile_follow {
+  width: 300px;
+  font-size: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: $gray;
+  overflow: hidden;
+}
+
+.reple_profile span {
+  font-weight: bolder;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: $gray;
+  background-color: #fafafa;
+
+  span {
+    .footerLink {
+      color: gray;
+    }
+
+    &:visited {
+      color: gray;
+    }
+  }
+}
+
+@media screen and (max-width: 1368px) {
+  .article_profile_follow {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 1151px) {
+  .article_profile_follow {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .article_profile_follow {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .main-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      order: 1;
+      width: 100%;
+      margin: 0;
+
+      .right_item1 {
+        display: none;
+      }
+
+      .right_item2 {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .feeds {
+    order: 3;
+    margin: 0;
+  }
+
+  .user_story_container {
+    display: flex;
+    overflow: auto;
+    height: 100%;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .user_container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article_profile_content {
+      display: none;
+    }
+  }
+  .user_container {
+    margin: 0 20px;
+
+    .article_profile {
+      width: 50px;
+      height: 50px;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  .right_item3 {
+    width: 100%;
+    display: none;
+  }
+}
