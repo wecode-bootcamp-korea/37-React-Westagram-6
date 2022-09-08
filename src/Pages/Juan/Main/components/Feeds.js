@@ -14,7 +14,7 @@ function Feeds({ data }) {
   const [inputValue, setInputValue] = useState('');
   const [commentArr, setCommentArr] = useState([]);
   const [commentId, setCommentId] = useState(1);
-  const { id, img_url, user_id, content, comment } = data;
+  const { id, img_url, user_id, content } = data;
 
   const inputValueHandle = event => {
     setInputValue({ id: commentId, content: event.target.value });
@@ -24,17 +24,12 @@ function Feeds({ data }) {
     setCommentArr(prev => [inputValue, ...prev]);
     setCommentId(prev => prev + 1);
     setInputValue({ id: commentId, content: '' });
-    // const inputValuea = replyInput.value;
-    // let copy = [...articleData.comment];
-    // copy = [
-    //   ...articleData.comment,
-    //   {
-    //     id: articleData.comment.length + 1,
-    //     user_id: 'new_reply',
-    //     cotent: inputValue,
-    //   },
-    // ];
   };
+
+  const deleteComment = e => {
+    setCommentArr(commentArr.filter(comment => comment.id !== e.id));
+  };
+
   return (
     <div className="article" key={id}>
       <section className="articleHeader">
@@ -68,7 +63,13 @@ function Feeds({ data }) {
 
         <ul className="replyContainer">
           {commentArr.map(e => {
-            return <UserReply key={e.id} commentArr={e} />;
+            return (
+              <UserReply
+                key={e.id}
+                commentArr={e}
+                onXClick={() => deleteComment(e)}
+              />
+            );
           })}
         </ul>
 
@@ -92,7 +93,7 @@ function Feeds({ data }) {
 }
 
 function UserReply(props) {
-  const { commentArr } = props;
+  const { commentArr, onXClick } = props;
   return (
     <li className="userReply">
       <div className="replyTextContainer">
@@ -100,14 +101,7 @@ function UserReply(props) {
         <p className="replyText">{commentArr.content}</p>
       </div>
       <div className="replyBtnContainer">
-        <button
-          // onClick={() => {
-          //   let copy = [...props.commentArr];
-          //   copy.splice(i, 1);
-          //   props.setCommentArr(copy);
-          // }}
-          className="deleteBtn"
-        >
+        <button onClick={onXClick} className="deleteBtn">
           x
         </button>
         <button>
