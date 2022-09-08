@@ -1,7 +1,7 @@
-import React from 'react';
-import './Login.scss';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import './Login.scss';
+
 function Login() {
   const [inputValue, setInputValue] = useState({ email: '', password: '' });
   const [disabled, setDisabled] = useState(true);
@@ -33,12 +33,13 @@ function Login() {
         }
         throw new Error('통신실패!'); // 6
       })
-      .catch(error => console.log(error)) // 7
+      .catch(error => alert(error)) // 7
       .then(data => {
         localStorage.setItem('token', data.accessToken);
         alert('로그인 성공');
       });
   };
+
   const signupFetch = () => {
     fetch('http://10.58.2.194:3000/auth/signup', {
       method: 'POST',
@@ -54,12 +55,14 @@ function Login() {
         }
         throw new Error('에러 발생!'); //reponse.ok가 true가 아닐 경우 error를 throw
       })
-      .catch(error => console.log(error));
+      .catch(error => alert(error));
   };
+
   return (
     <div className="login">
       <div className="container">
         <div className="logo">westagram</div>
+
         <input
           className="loginInput"
           type="text"
@@ -67,6 +70,7 @@ function Login() {
           name="email"
           onChange={handleInput}
         />
+
         <input
           className="loginInput"
           type="password"
@@ -74,14 +78,15 @@ function Login() {
           name="password"
           onChange={handleInput}
         />
-        {/* <Link to="/Mainj"> */}
+
         <button onClick={loginFetch} className="loginBtn" disabled={disabled}>
           로그인
         </button>
+
         <button onClick={signupFetch} className="loginBtn">
           회원가입
         </button>
-        {/* </Link> */}
+
         <Link to="/Loginj">
           <p className="pwdFind">비밀번호를 잊으셨나요?</p>
         </Link>

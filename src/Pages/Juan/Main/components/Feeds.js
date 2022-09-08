@@ -11,14 +11,15 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 
 function Feeds({ data }) {
+  const { id, img_url, user_id, content } = data;
   const [inputValue, setInputValue] = useState('');
   const [commentArr, setCommentArr] = useState([]);
   const [commentId, setCommentId] = useState(1);
-  const { id, img_url, user_id, content } = data;
 
-  const inputValueHandle = event => {
-    setInputValue({ id: commentId, content: event.target.value });
+  const inputValueHandle = e => {
+    setInputValue({ id: commentId, content: e.target.value });
   };
+
   const replySumbit = e => {
     e.preventDefault();
     setCommentArr(prev => [inputValue, ...prev]);
@@ -55,10 +56,8 @@ function Feeds({ data }) {
         </div>
 
         <div className="articleText">
-          <div>
-            <span className="userId">{user_id}</span>
-            <span className="replyText">{content}</span>
-          </div>
+          <span className="userId">{user_id}</span>
+          <span className="replyText">{content}</span>
         </div>
 
         <ul className="replyContainer">
@@ -72,7 +71,6 @@ function Feeds({ data }) {
             );
           })}
         </ul>
-
         <p className="articleTime">42분전</p>
       </div>
 

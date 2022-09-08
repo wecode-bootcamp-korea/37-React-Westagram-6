@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { USER_DATA } from '../Main';
 
 function Aside() {
-  useEffect(() => {
-    UserStoryContainer();
-    RecommendUser();
-  }, []);
   return (
     <section className="mainRight">
       <div className="rightItem1">
@@ -15,6 +11,7 @@ function Aside() {
           <p className="article_profile_content">WeCode | 위코드</p>
         </div>
       </div>
+
       <section className="rightItem2">
         <div className="right_item_header">
           <p className="right_item_title">스토리</p>
@@ -37,6 +34,7 @@ function Aside() {
     </section>
   );
 }
+
 function UserStoryContainer() {
   return USER_DATA.map(user => {
     return (
