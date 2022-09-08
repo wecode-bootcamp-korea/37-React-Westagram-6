@@ -1,10 +1,12 @@
+@import '../../../styles/variable.scss';
+
 main {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 87vh;
   padding: 20px;
-  background-color: #fafafa;
+  background-color: $background-color;
 
   .feeds {
     display: flex;
@@ -19,14 +21,14 @@ main {
     .article {
       background-color: white;
       margin-bottom: 50px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: $boder-light;
 
       .articleHeader {
         position: relative;
         display: flex;
         align-items: center;
         padding: 1rem 1rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: $boder-light;
 
         .ellipsis {
           position: absolute;
@@ -45,10 +47,8 @@ main {
         width: 500px;
         min-width: 500px;
         height: 450px;
-        background-image: url('https://img.khan.co.kr/news/2022/02/01/l_2022020101000012600000501.webp');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
+        background: url('https://img.khan.co.kr/news/2022/02/01/l_2022020101000012600000501.webp')
+          center center cover no-repeat;
       }
 
       .articleReplyContainer {
@@ -121,7 +121,7 @@ main {
           height: 50px;
           border: none;
           padding: 0.5rem;
-          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          border-top: $boder-light;
         }
 
         .replyBtn {
@@ -146,14 +146,11 @@ main {
   height: 35px;
   border-radius: 50%;
   margin-right: 10px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background: $bg-size;
 }
 
 .userId {
   font-weight: bolder;
-  display: inline;
   margin-right: 5px;
 }
 
@@ -165,7 +162,7 @@ main {
 .articleTime {
   font-size: 15px;
   margin-top: 5px;
-  color: rgba(0, 0, 0, 0.5);
+  color: $gray;
 }
 
 .reple_profile {
@@ -177,12 +174,12 @@ main {
 
 /* ////////////////////////////////////////////////////////////////// */
 
-.mainRight {
+.aside {
   width: 30%;
   min-width: 300px;
 
   .right_item_title {
-    color: rgba(0, 0, 0, 0.5);
+    color: $gray;
   }
 
   .right_item_all {
@@ -202,11 +199,11 @@ main {
     margin-bottom: 20px;
   }
 
-  .rightItem2 {
+  .aside_story {
     height: 300px;
     padding: 15px;
     margin-bottom: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: $boder-light;
     border-radius: 5px;
     background-color: white;
 
@@ -219,15 +216,15 @@ main {
       }
     }
   }
-  .rightItem3 {
+  .aside_recommend {
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: $boder-light;
     background-color: white;
 
     .recommendContainer {
-      height: 300px;
+      height: 250px;
       overflow: auto;
       &::-webkit-scrollbar {
         display: none;
@@ -238,7 +235,7 @@ main {
 
 .article_profile_content {
   margin: 0;
-  color: rgba(0, 0, 0, 0.5);
+  color: $gray;
 }
 
 .user_container {
@@ -255,6 +252,7 @@ main {
   width: 50px;
   height: 50px;
   background-image: url('https://velog.velcdn.com/images/inyong_pang/post/f0ea605d-c2d9-460c-aedc-a0ec77e6759f/wecode.png');
+  background-size: cover;
 }
 
 .follow_btn {
@@ -269,21 +267,15 @@ main {
 
 .article_profile_follow {
   width: 300px;
-  overflow: hidden;
+  font-size: 15px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.5);
+  color: $gray;
+  overflow: hidden;
 }
 
 .reple_profile span {
   font-weight: bolder;
-}
-
-.gray {
-  font-size: 15px;
-  line-height: 120%;
-  color: rgba(0, 0, 0, 0.3);
 }
 
 footer {
@@ -291,7 +283,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  color: rgba(0, 0, 0, 0.3);
+  color: $gray;
   background-color: #fafafa;
 
   span {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Comment from './Comment';
 import {
   faEllipsisVertical,
   faArrowUpFromBracket,
@@ -10,8 +11,8 @@ import {
   faHeart,
 } from '@fortawesome/free-regular-svg-icons';
 
-function Feeds({ feeds }) {
-  const { id, img_url, user_id, content } = feeds;
+function Feeds({ article }) {
+  const { id, img_url, user_id, content } = article;
   const [inputValue, setInputValue] = useState('');
   const [commentArr, setCommentArr] = useState([]);
   const [commentId, setCommentId] = useState(1);
@@ -28,7 +29,7 @@ function Feeds({ feeds }) {
   };
 
   const deleteComment = e => {
-    setCommentArr(commentArr.filter(comment => comment.id !== e.id));
+    setCommentArr(commentArr.filter(comment => comment.id !== e));
   };
 
   return (
@@ -61,20 +62,21 @@ function Feeds({ feeds }) {
         </div>
 
         <ul className="replyContainer">
-          {commentArr.map(e => {
+          {commentArr.map(comment => {
             return (
-              <UserReply
-                key={e.id}
-                commentArr={e}
-                onXClick={() => deleteComment(e)}
+              <Comment
+                key={comment.id}
+                comment={comment}
+                onXClick={deleteComment}
               />
             );
           })}
         </ul>
+
         <p className="articleTime">42분전</p>
       </div>
 
-      <form onSubmit={replySumbit} className="replyForm">
+      <form className="replyForm" onSubmit={replySumbit}>
         <input
           type="text"
           placeholder="댓글 달기..."
@@ -90,23 +92,4 @@ function Feeds({ feeds }) {
   );
 }
 
-function UserReply(props) {
-  const { commentArr, onXClick } = props;
-  return (
-    <li className="userReply">
-      <div className="replyTextContainer">
-        <p className="userId">new_reply</p>
-        <p className="replyText">{commentArr.content}</p>
-      </div>
-      <div className="replyBtnContainer">
-        <button onClick={onXClick} className="deleteBtn">
-          x
-        </button>
-        <button>
-          <i className="fa-regular fa-heart reple_heart" />
-        </button>
-      </div>
-    </li>
-  );
-}
 export default Feeds;
