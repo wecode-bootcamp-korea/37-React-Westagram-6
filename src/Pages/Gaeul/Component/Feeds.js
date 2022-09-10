@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import CommentList from './CommentList';
 
-const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
+const Feeds = ({ feedData }) => {
   const [input, setInput] = useState('');
   const [inputList, setInputList] = useState([]);
-  const [isValid, setIsValid] = useState(false);
 
   const post = event => {
     event.preventDefault();
@@ -12,19 +11,23 @@ const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
     setInput('');
   };
 
+  const handleInput = event => {
+    setInput(event.target.value);
+  };
+
   return (
-    <div className="article-wrap" key={userId}>
+    <div className="feeds" key={feedData.userId}>
       <div className="user-bar">
         <div className="user">
           <div className="user-image" />
-          <em className="user-id">{userId}</em>
+          <em className="user-id">{feedData.userId}</em>
         </div>
         <button id="feed-dot">
           <i className="fa-solid fa-ellipsis" />
         </button>
       </div>
 
-      <img className="article-img" src={userUrl} alt="피드" />
+      <img className="article-img" src={feedData.url} alt="피드이미지" />
 
       <div className="article-icons">
         <div className="article-three-icons">
@@ -47,13 +50,13 @@ const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
       <div className="like-user">
         <div className="like-user-img" />
         <p>
-          <b>{userLikeUser}</b>님 외 <b>{userLike}명</b>이 좋아합니다
+          <b>{feedData.likeUser}</b>님 외 <b>{feedData.like}명</b>이 좋아합니다
         </p>
       </div>
 
       <ul className="comments-ul">
-        {inputList.map((item, i) => {
-          return <CommentList item={item} key={i} />;
+        {inputList.map((input, idx) => {
+          return <CommentList item={input} key={idx} />;
         })}
       </ul>
 
@@ -62,21 +65,12 @@ const Feeds = ({ userId, userUrl, userLike, userLikeUser }) => {
           className="comment-input"
           type="text"
           placeholder="댓글 달기..."
-          onChange={e => {
-            setInput(e.target.value);
-          }}
-          onKeyUp={e => {
-            e.target.value.length > 0 ? setIsValid(true) : setIsValid(false);
-          }}
+          onChange={handleInput}
           value={input}
         />
         <button
-          type="button"
-          className={
-            isValid === true ? 'submitCommentActive' : 'submitCommentInactive'
-          }
-          onClick={post}
-          disabled={isValid ? false : true}
+          className={input ? 'submitCommentActive' : 'submitCommentInactive'}
+          disabled={!input}
         >
           게시
         </button>

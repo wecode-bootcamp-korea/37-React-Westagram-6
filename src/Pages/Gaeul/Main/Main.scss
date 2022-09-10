@@ -1,358 +1,146 @@
-@import '../../../styles/reset.scss';
-@import '../../../styles/common.scss';
 @import '../../../styles/variable.scss';
-
-body {
-  background-color: $backGroundColor;
-}
 
 p {
   font-family: 'Roboto';
   letter-spacing: 0.2px;
 }
 
-/* main */
-.main {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 100px;
+.Main {
+  background-color: $backGroundColor;
 
-  .feeds {
-    margin-right: 15px;
+  .main {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
 
-    .article-wrap {
-      width: 470px;
-      height: auto;
-      background-color: white;
-      border: 1px solid #eaeaea;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 20px;
+    .main-right {
+      width: 250px;
+      height: 500px;
 
-      .user-bar {
-        height: 60px;
-        border-bottom: 1px solid #eaeaea;
+      .id-info-box {
         display: flex;
+        justify-content: left;
         align-items: center;
-        padding-left: 15px;
-        justify-content: space-between;
-        padding: 15px;
+        padding-left: 5px;
+        margin-bottom: 15px;
 
-        .user {
-          display: flex;
-          align-items: center;
+        .my-image {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-color: black;
+          margin-right: 10px;
+        }
 
-          .user-image {
-            width: 28px;
-            height: 28px;
-            background-color: #3c3c3c;
-            background-size: cover;
-            border-radius: 50%;
-            margin-right: 10px;
-          }
-
-          .user-id {
+        .my-info {
+          p {
             font-size: 14px;
-            font-weight: 700;
+          }
+
+          #my-id {
+            font-weight: 500;
+            margin-bottom: 3px;
+          }
+
+          #my-id-text {
+            color: #adafb1;
           }
         }
-
-        #feed-dot {
-          cursor: pointer;
-          background-color: transparent;
-        }
       }
 
-      .article-img {
-        height: 470px;
-        min-width: 470px;
-        background-image: url('../../../assets/Gaeul/cake_img.jpg');
-        background-size: cover;
-        background-position: 0 -160px;
-        margin-bottom: 10px;
-      }
+      // .recommend {
+      //   height: 200px;
+      //   background-color: $white;
+      //   border: 1px solid #eaeaea;
+      //   margin-bottom: 15px;
+      //   padding: 0 15px;
+      //   overflow: scroll;
 
-      .article-icons {
+      //   .story-bar {
+      //     font-size: 13px;
+      //     background-color: $white;
+      //     height: 35px;
+      //     position: sticky;
+      //     top: 0;
+      //     display: flex;
+      //     justify-content: space-between;
+      //     align-items: center;
+
+      //     .recommend-h5 {
+      //       color: #adafb1;
+      //     }
+
+      //     .more-btn {
+      //       font-size: 12px;
+      //       color: #3c3c3c;
+      //       font-weight: 700;
+      //       background-color: transparent;
+      //       cursor: pointer;
+      //     }
+      //   }
+
+      //   .story-recommend-user {
+      //     display: flex;
+      //     align-items: center;
+      //     justify-content: space-around;
+      //     height: 40px;
+
+      //     .user-image {
+      //       width: 28px;
+      //       height: 28px;
+      //       background-color: #3c3c3c;
+      //       background-size: cover;
+      //       border-radius: 50%;
+      //       margin-right: 10px;
+      //     }
+
+      //     .recommend-text {
+      //       width: 130px;
+      //       font-size: 12px;
+      //       color: #c3c5c7;
+      //       white-space: nowrap;
+      //       overflow: hidden;
+      //       text-overflow: ellipsis;
+      //     }
+
+      //     .follow {
+      //       margin-left: 2px;
+      //       font-size: 13px;
+      //       font-weight: 700;
+      //       color: #0095f6;
+      //       background-color: $white;
+      //       cursor: pointer;
+      //     }
+      //   }
+      // }
+
+      .site-info {
+        width: 220px;
         display: flex;
-        justify-content: space-between;
-        margin: 0 10px;
+        flex-wrap: wrap;
 
-        .article-three-icons {
-          button {
-            font-size: 20px;
-            background-color: $white;
+        .site-info-list {
+          color: #c3c5c7;
+          font-size: 12px;
+          margin-bottom: 5px;
 
-            &:hover {
-              cursor: pointer;
-              opacity: 0.5;
-            }
+          a {
+            color: #c3c5c7;
+          }
 
-            &:last-child {
-              font-size: 18.5px;
-            }
+          &:not(:last-child)::after {
+            content: '\00B7';
+            color: lightgray;
+            margin: 0 3px;
           }
         }
-
-        .bookmark {
-          font-size: 19px;
-          background-color: $white;
-          &:hover {
-            cursor: pointer;
-            opacity: 0.5;
-          }
-        }
-      }
-
-      .like-user {
-        height: auto;
-        display: flex;
-        align-items: center;
-        padding: 10px;
 
         p {
-          font-size: 13px;
-          b {
-            font-weight: 700;
-          }
-        }
-
-        .like-user-img {
-          width: 20px;
-          height: 20px;
-          border: 1px solid #eaeaea;
-          border-radius: 50%;
-          margin-right: 5px;
-        }
-      }
-
-      .comments-ul {
-        padding: 0 10px;
-        font-size: 13px;
-
-        .comment-li {
-          margin: 5px 0;
-          padding: 3px 0;
-          display: flex;
-          justify-content: space-between;
-
-          em {
-            font-weight: 700;
-          }
-
-          .comment-heart-btn {
-            background-color: $white;
-            color: #adafb1;
-            padding: 0;
-          }
-
-          .delete-btn {
-            background-color: $white;
-            color: #adafb1;
-            padding: 0;
-            padding-left: 8px;
-          }
-        }
-      }
-
-      .lets-comment {
-        border-top: 1px solid #eaeaea;
-        height: 40px;
-        width: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-
-        .comment-input {
-          width: 400px;
-          height: 30px;
-          border: none;
-
-          &::placeholder {
-            font-size: 13px;
-            color: #adafb1;
-          }
-        }
-
-        .submitCommentActive {
-          font-size: 13px;
-          font-weight: 700;
-          color: #0095f6;
-          background-color: $white;
-        }
-
-        .submitCommentInactive {
-          font-size: 13px;
-          font-weight: 700;
-          color: #0095f6;
-          background-color: $white;
-          opacity: 0.5;
-        }
-      }
-    }
-  }
-
-  .main-right {
-    width: 250px;
-    height: 500px;
-
-    .id-info-box {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      padding-left: 5px;
-      margin-bottom: 15px;
-
-      .my-image {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        background-color: black;
-        margin-right: 10px;
-      }
-
-      .my-info {
-        p {
-          font-size: 14px;
-        }
-
-        #my-id {
-          font-weight: 500;
-          margin-bottom: 3px;
-        }
-
-        #my-id-text {
-          color: #adafb1;
-        }
-      }
-    }
-
-    .story {
-      height: 200px;
-      background-color: white;
-      border: 1px solid #eaeaea;
-      margin-bottom: 15px;
-      padding: 0 15px;
-      overflow: scroll;
-
-      .story-bar {
-        background-color: white;
-        height: 35px;
-        position: sticky;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-
-        h5 {
-          color: #adafb1;
-        }
-
-        button {
-          font-size: 12px;
-          color: #3c3c3c;
-          font-weight: 700;
-          background-color: $white;
-        }
-      }
-
-      .story-user {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-
-        .user-image {
-          width: 28px;
-          height: 28px;
-          background-color: #3c3c3c;
-          background-size: cover;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-
-        .timeline {
-          font-size: 12px;
           color: #c3c5c7;
-          margin-top: 2px;
-        }
-      }
-    }
-
-    .recommend {
-      height: 200px;
-      background-color: white;
-      border: 1px solid #eaeaea;
-      margin-bottom: 15px;
-      padding: 0 15px;
-      overflow: scroll;
-
-      .story-bar {
-        background-color: white;
-        height: 35px;
-        position: sticky;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-
-        h5 {
-          color: #adafb1;
-        }
-
-        button {
           font-size: 12px;
-          color: #3c3c3c;
-          font-weight: 700;
-          background-color: $white;
+          margin-top: 15px;
+          line-height: 15px;
         }
-      }
-
-      .story-recommend-user {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        height: 40px;
-
-        .user-image {
-          width: 28px;
-          height: 28px;
-          background-color: #3c3c3c;
-          background-size: cover;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-
-        .recommend-text {
-          width: 130px;
-          font-size: 12px;
-          color: #c3c5c7;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
-        .follow {
-          margin-left: 2px;
-          font-size: 13px;
-          font-weight: 700;
-          color: #0095f6;
-          background-color: $white;
-          cursor: pointer;
-        }
-      }
-    }
-
-    .site-info {
-      width: 220px;
-
-      span,
-      p {
-        color: #c3c5c7;
-        font-size: 12px;
-        margin-top: 15px;
-        line-height: 15px;
       }
     }
   }

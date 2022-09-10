@@ -15,21 +15,12 @@ const Main = () => {
   }, []);
 
   return (
-    <>
-      <header>
-        <Nav />
-      </header>
-
+    <div className="Main">
+      <Nav />
       <section className="main">
-        <div className="feeds">
-          {feedList.map(i => (
-            <Feeds
-              userId={i.userId}
-              userUrl={i.url}
-              userLike={i.like}
-              userLikeUser={i.likeUser}
-              key={i.userId}
-            />
+        <div className="feeds-wrap">
+          {feedList.map(feedData => (
+            <Feeds key={feedData.id} feedData={feedData} />
           ))}
         </div>
 
@@ -44,31 +35,33 @@ const Main = () => {
 
           <section className="story">
             <div className="story-bar">
-              <h5>스토리</h5>
-              <button>모두 보기</button>
+              <h5 className="recommend-h5">스토리</h5>
+              <button className="more-btn">모두 보기</button>
             </div>
             <StoryUser />
           </section>
 
           <section className="recommend">
             <div className="story-bar">
-              <h5>회원님을 위한 추천</h5>
-              <button>모두 보기</button>
+              <h5 className="recommend-h5">회원님을 위한 추천</h5>
+              <button className="more-btn">모두 보기</button>
             </div>
             <RecommendUser />
           </section>
 
           <aside>
-            <div className="site-info">
-              {ASIDE_TEXT.map(item => (
-                <span key={item.id}>{item.text}</span>
+            <ul className="site-info">
+              {ASIDE_TEXT.map(asideText => (
+                <li className="site-info-list" key={asideText.id}>
+                  <a href="#/">{asideText.text}</a>
+                </li>
               ))}
               <p>© 2022 INSTAGRAM FROM META</p>
-            </div>
+            </ul>
           </aside>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
