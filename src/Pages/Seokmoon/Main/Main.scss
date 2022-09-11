@@ -2,7 +2,7 @@ $backgroundColor: #fafafa;
 $whiteBorder: 1px solid white;
 $whiteColor: white;
 
-.background {
+.Main {
   background-color: $backgroundColor;
 
   .nav-bar {
@@ -151,7 +151,7 @@ li {
   margin-right: 70px;
 }
 
-.feed-nav {
+.Feed {
   height: 70px;
   display: flex;
   background-color: $whiteColor;
@@ -250,15 +250,22 @@ input::placeholder {
 
 /* <------------------------ main-right ------------------------> */
 
-.main-right {
-  margin-top: 50px;
+.MainRight {
+  margin-top: 70px;
   width: 400px;
   height: 450px;
   margin-bottom: 600px;
   margin-left: 50px;
 }
 
+.MainRights {
+  display: flex;
+  justify-content: space-between;
+}
+
 .right-box {
+  position: relative;
+  right: 10px;
   border: 1px solid grey;
   width: 300px;
   height: 100px;
@@ -274,10 +281,11 @@ input::placeholder {
 }
 
 .right-recommendation {
-  width: 378px;
-  height: 60px;
   display: flex;
   justify-content: space-between;
+  width: 378px;
+  height: 60px;
+  margin-top: 40px;
 }
 
 .main-image-box-right {
@@ -285,13 +293,14 @@ input::placeholder {
   height: 50px;
   border-radius: 70%;
   overflow: hidden;
-  margin-left: 15px;
-  margin-top: 3px;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
 .main-right-location {
   display: flex;
   justify-content: space-around;
+  width: 370px;
 
   .right-box-name {
     position: relative;
@@ -316,8 +325,8 @@ input::placeholder {
 
 .right-id {
   position: relative;
-  right: 30px;
-  top: 15px;
+  right: 45px;
+  top: 25px;
 }
 
 .follow-letter {
@@ -325,7 +334,7 @@ input::placeholder {
   font-weight: bold;
   position: relative;
   top: 25px;
-  right: 50px;
+  right: 10px;
 }
 
 .story-box {
@@ -333,16 +342,20 @@ input::placeholder {
 }
 
 .user-recommendation {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 20px;
   padding-top: 20px;
+}
+
+.user-recommendation-letter {
+  display: flex;
+  justify-content: space-between;
 }
 
 .scroll {
   overflow: scroll;
   height: 250px;
   border: 1px solid rgb(216, 212, 212);
+  width: 450px;
 }
 
 .recommendation-box {
@@ -350,12 +363,17 @@ input::placeholder {
   top: 200px;
 }
 
+.user-prefer {
+  border: 1px solid rgb(216, 212, 212);
+  width: 430px;
+  margin-top: 200px;
+}
 .recommendation-bottom-box {
   border: 1px solid lightgrey;
 }
 
 .information-list {
-  margin-top: 240px;
+  margin-top: 50px;
   font-size: 18px;
   color: lightgray;
 }

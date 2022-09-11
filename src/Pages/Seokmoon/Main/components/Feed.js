@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Comments from './Comments';
 
-function Feed(props) {
+function Feed({ feedInfo }) {
   const [feedComments, setFeedComments] = useState([]);
   const [comment, setComment] = useState('');
   const [userName] = useState('tjrans9248');
+  const { id, profileImg, userId, imageUrl } = feedInfo;
 
   const onChange = e => {
     setComment(e.target.value);
@@ -18,21 +19,21 @@ function Feed(props) {
   };
 
   return (
-    <div key={props.id}>
-      <div className="feed-nav">
+    <div key={id}>
+      <div className="Feed">
         <div>
           <div className="main-image-box">
-            <img src={props.profileImg} className="main-image" alt="" />
+            <img src={profileImg} className="main-image" alt="" />
           </div>
         </div>
         <div>
-          <span className="user-id">{props.userId}</span>
+          <span className="user-id">{userId}</span>
           <i className="fa-solid fa-ellipsis i-dot" />
         </div>
       </div>
 
       <div className="feed-main">
-        <img src={props.imageUrl} alt="" className="feed-image" />
+        <img src={imageUrl} alt="" className="feed-image" />
       </div>
 
       <div className="feed-footer-back">
@@ -49,8 +50,7 @@ function Feed(props) {
         </div>
 
         <div>
-          <strong>{props.userId}</strong>님 <strong>외 10명</strong>이
-          좋아합니다.
+          <strong>{userId}</strong>님 <strong>외 10명</strong>이 좋아합니다.
         </div>
 
         <div>
