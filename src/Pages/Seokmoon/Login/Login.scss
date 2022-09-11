@@ -1,0 +1,73 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css';
+$whiteColor: white;
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  .main-container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    width: 600px;
+    border: 1px solid $whiteColor;
+    background-color: #fafafa;
+
+    .inner-box {
+      border: 1px solid rgb(209, 206, 206);
+      width: 550px;
+      height: 750px;
+      background-color: #ffffff;
+
+      .box-location {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 100px;
+
+        .logo-title {
+          margin-bottom: 100px;
+          font-size: 95px;
+          font-family: 'Lobster', cursive;
+        }
+      }
+    }
+  }
+}
+
+.input-container {
+  width: 450px;
+  height: 60px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #fafafa;
+  border: 1px solid rgb(237, 232, 232);
+}
+
+.login-button {
+  width: 475px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgb(0, 170, 255);
+  border: 1px solid $whiteColor;
+  color: $whiteColor;
+  &:disabled {
+    background-color: #c4e1fb;
+  }
+}
+
+.lost-password {
+  position: relative;
+  top: 150px;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #184675;
+}

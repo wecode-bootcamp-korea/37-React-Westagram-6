@@ -1,0 +1,9 @@
+$backgroundColor: #fafafa;
+$whiteBorder: 1px solid white;
+$whiteColor: white;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
