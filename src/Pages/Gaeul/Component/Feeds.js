@@ -56,7 +56,7 @@ const Feeds = ({ feedData }) => {
 
       <ul className="comments-ul">
         {inputList.map((input, idx) => {
-          return <CommentList item={input} key={idx} />;
+          return <CommentList key={idx} item={input} />;
         })}
       </ul>
 
