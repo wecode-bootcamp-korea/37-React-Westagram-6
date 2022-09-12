@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "userId": "wecoco29",
+    "url": "https://cdn.pixabay.com/photo/2022/03/28/18/41/coffee-7098126_1280.jpg",
+    "like": "21",
+    "likeUser": "everyone_woo"
+  },
+  {
+    "id": 2,
+    "userId": "cocode37",
+    "url": "https://cdn.pixabay.com/photo/2016/11/19/15/32/laptop-1839876_1280.jpg",
+    "like": "3",
+    "likeUser": "ww_like01"
+  },
+  {
+    "id": 3,
+    "userId": "dewewe223",
+    "url": "https://cdn.pixabay.com/photo/2018/03/06/03/57/bichon-we-now-3202486_1280.jpg",
+    "like": "268",
+    "likeUser": "mister_boo"
+  },
+  {
+    "id": 4,
+    "userId": "catLover91",
+    "url": "https://cdn.pixabay.com/photo/2020/10/05/10/51/cat-5628953_1280.jpg",
+    "like": "561",
+    "likeUser": "jiwonSS905"
+  },
+  {
+    "id": 5,
+    "userId": "mysteryShopper",
+    "url": "https://cdn.pixabay.com/photo/2016/11/22/21/57/apparel-1850804_1280.jpg",
+    "like": "40",
+    "likeUser": "hachiware"
+  }
+]
